@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A360A4B11EB3355200B043B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B01EB3355200B043B5 /* main.m */; };
+		A360A4B41EB3355200B043B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B31EB3355200B043B5 /* AppDelegate.m */; };
+		A360A4B71EB3355200B043B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B61EB3355200B043B5 /* ViewController.m */; };
+		A360A4BA1EB3355200B043B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A360A4B81EB3355200B043B5 /* Main.storyboard */; };
+		A360A4BC1EB3355200B043B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A360A4BB1EB3355200B043B5 /* Assets.xcassets */; };
+		A360A4BF1EB3355200B043B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A360A4BD1EB3355200B043B5 /* LaunchScreen.storyboard */; };
+		A360A4CA1EB3355300B043B5 /* azdFlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4C91EB3355300B043B5 /* azdFlyTests.m */; };
+		A360A4D51EB3355300B043B5 /* azdFlyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4D41EB3355300B043B5 /* azdFlyUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A360A4C61EB3355300B043B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A360A4A41EB3355200B043B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A360A4AB1EB3355200B043B5;
+			remoteInfo = azdFly;
+		};
+		A360A4D11EB3355300B043B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A360A4A41EB3355200B043B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A360A4AB1EB3355200B043B5;
+			remoteInfo = azdFly;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A360A4AC1EB3355200B043B5 /* azdFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = azdFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A360A4B01EB3355200B043B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A360A4B21EB3355200B043B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A360A4B31EB3355200B043B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A360A4B51EB3355200B043B5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A360A4B61EB3355200B043B5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A360A4B91EB3355200B043B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A360A4BB1EB3355200B043B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A360A4BE1EB3355200B043B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A360A4C01EB3355200B043B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A360A4C51EB3355300B043B5 /* azdFlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = azdFlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A360A4C91EB3355300B043B5 /* azdFlyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = azdFlyTests.m; sourceTree = "<group>"; };
+		A360A4CB1EB3355300B043B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A360A4D01EB3355300B043B5 /* azdFlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = azdFlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A360A4D41EB3355300B043B5 /* azdFlyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = azdFlyUITests.m; sourceTree = "<group>"; };
+		A360A4D61EB3355300B043B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A360A4A91EB3355200B043B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A360A4C21EB3355300B043B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A360A4CD1EB3355300B043B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A360A4A31EB3355200B043B5 = {
+			isa = PBXGroup;
+			children = (
+				A360A4AE1EB3355200B043B5 /* azdFly */,
+				A360A4C81EB3355300B043B5 /* azdFlyTests */,
+				A360A4D31EB3355300B043B5 /* azdFlyUITests */,
+				A360A4AD1EB3355200B043B5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A360A4AD1EB3355200B043B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A360A4AC1EB3355200B043B5 /* azdFly.app */,
+				A360A4C51EB3355300B043B5 /* azdFlyTests.xctest */,
+				A360A4D01EB3355300B043B5 /* azdFlyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A360A4AE1EB3355200B043B5 /* azdFly */ = {
+			isa = PBXGroup;
+			children = (
+				A360A4B21EB3355200B043B5 /* AppDelegate.h */,
+				A360A4B31EB3355200B043B5 /* AppDelegate.m */,
+				A360A4B51EB3355200B043B5 /* ViewController.h */,
+				A360A4B61EB3355200B043B5 /* ViewController.m */,
+				A360A4B81EB3355200B043B5 /* Main.storyboard */,
+				A360A4BB1EB3355200B043B5 /* Assets.xcassets */,
+				A360A4BD1EB3355200B043B5 /* LaunchScreen.storyboard */,
+				A360A4C01EB3355200B043B5 /* Info.plist */,
+				A360A4AF1EB3355200B043B5 /* Supporting Files */,
+			);
+			path = azdFly;
+			sourceTree = "<group>";
+		};
+		A360A4AF1EB3355200B043B5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A360A4B01EB3355200B043B5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A360A4C81EB3355300B043B5 /* azdFlyTests */ = {
+			isa = PBXGroup;
+			children = (
+				A360A4C91EB3355300B043B5 /* azdFlyTests.m */,
+				A360A4CB1EB3355300B043B5 /* Info.plist */,
+			);
+			path = azdFlyTests;
+			sourceTree = "<group>";
+		};
+		A360A4D31EB3355300B043B5 /* azdFlyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A360A4D41EB3355300B043B5 /* azdFlyUITests.m */,
+				A360A4D61EB3355300B043B5 /* Info.plist */,
+			);
+			path = azdFlyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A360A4AB1EB3355200B043B5 /* azdFly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A360A4D91EB3355300B043B5 /* Build configuration list for PBXNativeTarget "azdFly" */;
+			buildPhases = (
+				A360A4A81EB3355200B043B5 /* Sources */,
+				A360A4A91EB3355200B043B5 /* Frameworks */,
+				A360A4AA1EB3355200B043B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = azdFly;
+			productName = azdFly;
+			productReference = A360A4AC1EB3355200B043B5 /* azdFly.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A360A4C41EB3355300B043B5 /* azdFlyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A360A4DC1EB3355300B043B5 /* Build configuration list for PBXNativeTarget "azdFlyTests" */;
+			buildPhases = (
+				A360A4C11EB3355300B043B5 /* Sources */,
+				A360A4C21EB3355300B043B5 /* Frameworks */,
+				A360A4C31EB3355300B043B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A360A4C71EB3355300B043B5 /* PBXTargetDependency */,
+			);
+			name = azdFlyTests;
+			productName = azdFlyTests;
+			productReference = A360A4C51EB3355300B043B5 /* azdFlyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A360A4CF1EB3355300B043B5 /* azdFlyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A360A4DF1EB3355300B043B5 /* Build configuration list for PBXNativeTarget "azdFlyUITests" */;
+			buildPhases = (
+				A360A4CC1EB3355300B043B5 /* Sources */,
+				A360A4CD1EB3355300B043B5 /* Frameworks */,
+				A360A4CE1EB3355300B043B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A360A4D21EB3355300B043B5 /* PBXTargetDependency */,
+			);
+			name = azdFlyUITests;
+			productName = azdFlyUITests;
+			productReference = A360A4D01EB3355300B043B5 /* azdFlyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A360A4A41EB3355200B043B5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = xmazd;
+				TargetAttributes = {
+					A360A4AB1EB3355200B043B5 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 6QLN4D9TH8;
+						ProvisioningStyle = Automatic;
+					};
+					A360A4C41EB3355300B043B5 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 6QLN4D9TH8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A360A4AB1EB3355200B043B5;
+					};
+					A360A4CF1EB3355300B043B5 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 6QLN4D9TH8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A360A4AB1EB3355200B043B5;
+					};
+				};
+			};
+			buildConfigurationList = A360A4A71EB3355200B043B5 /* Build configuration list for PBXProject "azdFly" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A360A4A31EB3355200B043B5;
+			productRefGroup = A360A4AD1EB3355200B043B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A360A4AB1EB3355200B043B5 /* azdFly */,
+				A360A4C41EB3355300B043B5 /* azdFlyTests */,
+				A360A4CF1EB3355300B043B5 /* azdFlyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A360A4AA1EB3355200B043B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A360A4BF1EB3355200B043B5 /* LaunchScreen.storyboard in Resources */,
+				A360A4BC1EB3355200B043B5 /* Assets.xcassets in Resources */,
+				A360A4BA1EB3355200B043B5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A360A4C31EB3355300B043B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A360A4CE1EB3355300B043B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A360A4A81EB3355200B043B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A360A4B71EB3355200B043B5 /* ViewController.m in Sources */,
+				A360A4B41EB3355200B043B5 /* AppDelegate.m in Sources */,
+				A360A4B11EB3355200B043B5 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A360A4C11EB3355300B043B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A360A4CA1EB3355300B043B5 /* azdFlyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A360A4CC1EB3355300B043B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A360A4D51EB3355300B043B5 /* azdFlyUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A360A4C71EB3355300B043B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A360A4AB1EB3355200B043B5 /* azdFly */;
+			targetProxy = A360A4C61EB3355300B043B5 /* PBXContainerItemProxy */;
+		};
+		A360A4D21EB3355300B043B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A360A4AB1EB3355200B043B5 /* azdFly */;
+			targetProxy = A360A4D11EB3355300B043B5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A360A4B81EB3355200B043B5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A360A4B91EB3355200B043B5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A360A4BD1EB3355200B043B5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A360A4BE1EB3355200B043B5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A360A4D71EB3355300B043B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A360A4D81EB3355300B043B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A360A4DA1EB3355300B043B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6QLN4D9TH8;
+				INFOPLIST_FILE = azdFly/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmazd.azdFly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A360A4DB1EB3355300B043B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6QLN4D9TH8;
+				INFOPLIST_FILE = azdFly/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmazd.azdFly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A360A4DD1EB3355300B043B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6QLN4D9TH8;
+				INFOPLIST_FILE = azdFlyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmazd.azdFlyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/azdFly.app/azdFly";
+			};
+			name = Debug;
+		};
+		A360A4DE1EB3355300B043B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6QLN4D9TH8;
+				INFOPLIST_FILE = azdFlyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmazd.azdFlyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/azdFly.app/azdFly";
+			};
+			name = Release;
+		};
+		A360A4E01EB3355300B043B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 6QLN4D9TH8;
+				INFOPLIST_FILE = azdFlyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmazd.azdFlyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = azdFly;
+			};
+			name = Debug;
+		};
+		A360A4E11EB3355300B043B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 6QLN4D9TH8;
+				INFOPLIST_FILE = azdFlyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmazd.azdFlyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = azdFly;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A360A4A71EB3355200B043B5 /* Build configuration list for PBXProject "azdFly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A360A4D71EB3355300B043B5 /* Debug */,
+				A360A4D81EB3355300B043B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A360A4D91EB3355300B043B5 /* Build configuration list for PBXNativeTarget "azdFly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A360A4DA1EB3355300B043B5 /* Debug */,
+				A360A4DB1EB3355300B043B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A360A4DC1EB3355300B043B5 /* Build configuration list for PBXNativeTarget "azdFlyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A360A4DD1EB3355300B043B5 /* Debug */,
+				A360A4DE1EB3355300B043B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A360A4DF1EB3355300B043B5 /* Build configuration list for PBXNativeTarget "azdFlyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A360A4E01EB3355300B043B5 /* Debug */,
+				A360A4E11EB3355300B043B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A360A4A41EB3355200B043B5 /* Project object */;
+}
