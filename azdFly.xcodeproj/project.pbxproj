@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		879CA05330CEF760B634DC11 /* libPods-azdFly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61CC2B936158068CD1C6AC /* libPods-azdFly.a */; };
 		A360A4B11EB3355200B043B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B01EB3355200B043B5 /* main.m */; };
 		A360A4B41EB3355200B043B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B31EB3355200B043B5 /* AppDelegate.m */; };
 		A360A4B71EB3355200B043B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B61EB3355200B043B5 /* ViewController.m */; };
@@ -35,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A5DC5A40B6AC6175E829F1C /* Pods-azdFly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-azdFly.release.xcconfig"; path = "Pods/Target Support Files/Pods-azdFly/Pods-azdFly.release.xcconfig"; sourceTree = "<group>"; };
+		2DEFCBED59E214116DFF8A7A /* Pods-azdFly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-azdFly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-azdFly/Pods-azdFly.debug.xcconfig"; sourceTree = "<group>"; };
+		9A61CC2B936158068CD1C6AC /* libPods-azdFly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-azdFly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A360A4AC1EB3355200B043B5 /* azdFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = azdFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A360A4B01EB3355200B043B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A360A4B21EB3355200B043B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879CA05330CEF760B634DC11 /* libPods-azdFly.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B34CEEF6A6EF9867E23B643 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A61CC2B936158068CD1C6AC /* libPods-azdFly.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A360A4A31EB3355200B043B5 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +98,8 @@
 				A360A4C81EB3355300B043B5 /* azdFlyTests */,
 				A360A4D31EB3355300B043B5 /* azdFlyUITests */,
 				A360A4AD1EB3355200B043B5 /* Products */,
+				E67F70203741E2EA29FC0EBF /* Pods */,
+				7B34CEEF6A6EF9867E23B643 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +155,15 @@
 			path = azdFlyUITests;
 			sourceTree = "<group>";
 		};
+		E67F70203741E2EA29FC0EBF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2DEFCBED59E214116DFF8A7A /* Pods-azdFly.debug.xcconfig */,
+				0A5DC5A40B6AC6175E829F1C /* Pods-azdFly.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A360A4D91EB3355300B043B5 /* Build configuration list for PBXNativeTarget "azdFly" */;
 			buildPhases = (
+				0432AF68657344F483783373 /* [CP] Check Pods Manifest.lock */,
 				A360A4A81EB3355200B043B5 /* Sources */,
 				A360A4A91EB3355200B043B5 /* Frameworks */,
 				A360A4AA1EB3355200B043B5 /* Resources */,
+				E891C165B5AD85CD32EED7E0 /* [CP] Embed Pods Frameworks */,
+				BFD197EF8377E545471242D6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -270,6 +297,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0432AF68657344F483783373 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BFD197EF8377E545471242D6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-azdFly/Pods-azdFly-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E891C165B5AD85CD32EED7E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-azdFly/Pods-azdFly-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A360A4A81EB3355200B043B5 /* Sources */ = {
@@ -425,6 +500,7 @@
 		};
 		A360A4DA1EB3355300B043B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DEFCBED59E214116DFF8A7A /* Pods-azdFly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6QLN4D9TH8;
@@ -437,6 +513,7 @@
 		};
 		A360A4DB1EB3355300B043B5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A5DC5A40B6AC6175E829F1C /* Pods-azdFly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6QLN4D9TH8;
