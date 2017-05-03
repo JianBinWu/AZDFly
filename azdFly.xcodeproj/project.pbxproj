@@ -10,12 +10,15 @@
 		879CA05330CEF760B634DC11 /* libPods-azdFly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61CC2B936158068CD1C6AC /* libPods-azdFly.a */; };
 		A360A4B11EB3355200B043B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B01EB3355200B043B5 /* main.m */; };
 		A360A4B41EB3355200B043B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B31EB3355200B043B5 /* AppDelegate.m */; };
-		A360A4B71EB3355200B043B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B61EB3355200B043B5 /* ViewController.m */; };
 		A360A4BA1EB3355200B043B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A360A4B81EB3355200B043B5 /* Main.storyboard */; };
 		A360A4BC1EB3355200B043B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A360A4BB1EB3355200B043B5 /* Assets.xcassets */; };
 		A360A4BF1EB3355200B043B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A360A4BD1EB3355200B043B5 /* LaunchScreen.storyboard */; };
 		A360A4CA1EB3355300B043B5 /* azdFlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4C91EB3355300B043B5 /* azdFlyTests.m */; };
 		A360A4D51EB3355300B043B5 /* azdFlyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4D41EB3355300B043B5 /* azdFlyUITests.m */; };
+		A360A4E81EB834AB00B043B5 /* VideoPreviewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A360A4E71EB8349500B043B5 /* VideoPreviewer.framework */; };
+		A360A4E91EB834AB00B043B5 /* VideoPreviewer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A360A4E71EB8349500B043B5 /* VideoPreviewer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A398FD3E1EB865AC000FCD1A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A398FD3B1EB865AC000FCD1A /* RootViewController.m */; };
+		A398FD4C1EB8B2DD000FCD1A /* WLAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = A398FD4B1EB8B2DD000FCD1A /* WLAlertController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +36,35 @@
 			remoteGlobalIDString = A360A4AB1EB3355200B043B5;
 			remoteInfo = azdFly;
 		};
+		A360A4E61EB8349500B043B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A360A4E21EB8349500B043B5 /* VideoPreviewer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 02A543FD1C3C51CB0083C11B;
+			remoteInfo = VideoPreviewer;
+		};
+		A360A4EA1EB834AB00B043B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A360A4E21EB8349500B043B5 /* VideoPreviewer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 02A543FC1C3C51CB0083C11B;
+			remoteInfo = VideoPreviewer;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A360A4EC1EB834AC00B043B5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A360A4E91EB834AB00B043B5 /* VideoPreviewer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A5DC5A40B6AC6175E829F1C /* Pods-azdFly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-azdFly.release.xcconfig"; path = "Pods/Target Support Files/Pods-azdFly/Pods-azdFly.release.xcconfig"; sourceTree = "<group>"; };
@@ -43,8 +74,6 @@
 		A360A4B01EB3355200B043B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A360A4B21EB3355200B043B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A360A4B31EB3355200B043B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A360A4B51EB3355200B043B5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A360A4B61EB3355200B043B5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A360A4B91EB3355200B043B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A360A4BB1EB3355200B043B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A360A4BE1EB3355200B043B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +84,13 @@
 		A360A4D01EB3355300B043B5 /* azdFlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = azdFlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A360A4D41EB3355300B043B5 /* azdFlyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = azdFlyUITests.m; sourceTree = "<group>"; };
 		A360A4D61EB3355300B043B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A360A4E21EB8349500B043B5 /* VideoPreviewer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VideoPreviewer.xcodeproj; path = VideoPreviewer/VideoPreviewer.xcodeproj; sourceTree = "<group>"; };
+		A398FD3A1EB865AC000FCD1A /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		A398FD3B1EB865AC000FCD1A /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		A398FD461EB87F34000FCD1A /* UtilMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilMacro.h; sourceTree = "<group>"; };
+		A398FD471EB8A4D3000FCD1A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A398FD4A1EB8B2DD000FCD1A /* WLAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAlertController.h; sourceTree = "<group>"; };
+		A398FD4B1EB8B2DD000FCD1A /* WLAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAlertController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A360A4E81EB834AB00B043B5 /* VideoPreviewer.framework in Frameworks */,
 				879CA05330CEF760B634DC11 /* libPods-azdFly.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +123,7 @@
 		7B34CEEF6A6EF9867E23B643 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A360A4E21EB8349500B043B5 /* VideoPreviewer.xcodeproj */,
 				9A61CC2B936158068CD1C6AC /* libPods-azdFly.a */,
 			);
 			name = Frameworks;
@@ -94,6 +132,7 @@
 		A360A4A31EB3355200B043B5 = {
 			isa = PBXGroup;
 			children = (
+				A398FD3F1EB86926000FCD1A /* Lib */,
 				A360A4AE1EB3355200B043B5 /* azdFly */,
 				A360A4C81EB3355300B043B5 /* azdFlyTests */,
 				A360A4D31EB3355300B043B5 /* azdFlyUITests */,
@@ -116,10 +155,11 @@
 		A360A4AE1EB3355200B043B5 /* azdFly */ = {
 			isa = PBXGroup;
 			children = (
+				A398FD391EB865AC000FCD1A /* Controller */,
+				A398FD3C1EB865AC000FCD1A /* View */,
+				A398FD3D1EB865AC000FCD1A /* Model */,
 				A360A4B21EB3355200B043B5 /* AppDelegate.h */,
 				A360A4B31EB3355200B043B5 /* AppDelegate.m */,
-				A360A4B51EB3355200B043B5 /* ViewController.h */,
-				A360A4B61EB3355200B043B5 /* ViewController.m */,
 				A360A4B81EB3355200B043B5 /* Main.storyboard */,
 				A360A4BB1EB3355200B043B5 /* Assets.xcassets */,
 				A360A4BD1EB3355200B043B5 /* LaunchScreen.storyboard */,
@@ -133,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				A360A4B01EB3355200B043B5 /* main.m */,
+				A398FD471EB8A4D3000FCD1A /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -153,6 +194,87 @@
 				A360A4D61EB3355300B043B5 /* Info.plist */,
 			);
 			path = azdFlyUITests;
+			sourceTree = "<group>";
+		};
+		A360A4E31EB8349500B043B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A360A4E71EB8349500B043B5 /* VideoPreviewer.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A398FD391EB865AC000FCD1A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A398FD3A1EB865AC000FCD1A /* RootViewController.h */,
+				A398FD3B1EB865AC000FCD1A /* RootViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A398FD3C1EB865AC000FCD1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A398FD3D1EB865AC000FCD1A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A398FD3F1EB86926000FCD1A /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				A398FD401EB86A02000FCD1A /* Macro */,
+				A398FD411EB86A02000FCD1A /* Tool */,
+				A398FD421EB86A02000FCD1A /* CustomUI */,
+				A398FD431EB86A02000FCD1A /* Const */,
+				A398FD441EB86A02000FCD1A /* Category */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		A398FD401EB86A02000FCD1A /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				A398FD461EB87F34000FCD1A /* UtilMacro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		A398FD411EB86A02000FCD1A /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		A398FD421EB86A02000FCD1A /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				A398FD4A1EB8B2DD000FCD1A /* WLAlertController.h */,
+				A398FD4B1EB8B2DD000FCD1A /* WLAlertController.m */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		A398FD431EB86A02000FCD1A /* Const */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Const;
+			sourceTree = "<group>";
+		};
+		A398FD441EB86A02000FCD1A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		E67F70203741E2EA29FC0EBF /* Pods */ = {
@@ -177,10 +299,12 @@
 				A360A4AA1EB3355200B043B5 /* Resources */,
 				E891C165B5AD85CD32EED7E0 /* [CP] Embed Pods Frameworks */,
 				BFD197EF8377E545471242D6 /* [CP] Copy Pods Resources */,
+				A360A4EC1EB834AC00B043B5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A360A4EB1EB834AB00B043B5 /* PBXTargetDependency */,
 			);
 			name = azdFly;
 			productName = azdFly;
@@ -262,6 +386,12 @@
 			mainGroup = A360A4A31EB3355200B043B5;
 			productRefGroup = A360A4AD1EB3355200B043B5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A360A4E31EB8349500B043B5 /* Products */;
+					ProjectRef = A360A4E21EB8349500B043B5 /* VideoPreviewer.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A360A4AB1EB3355200B043B5 /* azdFly */,
@@ -270,6 +400,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A360A4E71EB8349500B043B5 /* VideoPreviewer.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VideoPreviewer.framework;
+			remoteRef = A360A4E61EB8349500B043B5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A360A4AA1EB3355200B043B5 /* Resources */ = {
@@ -351,9 +491,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A360A4B71EB3355200B043B5 /* ViewController.m in Sources */,
 				A360A4B41EB3355200B043B5 /* AppDelegate.m in Sources */,
+				A398FD4C1EB8B2DD000FCD1A /* WLAlertController.m in Sources */,
 				A360A4B11EB3355200B043B5 /* main.m in Sources */,
+				A398FD3E1EB865AC000FCD1A /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +526,11 @@
 			isa = PBXTargetDependency;
 			target = A360A4AB1EB3355200B043B5 /* azdFly */;
 			targetProxy = A360A4D11EB3355300B043B5 /* PBXContainerItemProxy */;
+		};
+		A360A4EB1EB834AB00B043B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VideoPreviewer;
+			targetProxy = A360A4EA1EB834AB00B043B5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -504,7 +650,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6QLN4D9TH8;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = /Users/wujianbin/Desktop/azdFly/azdFly/PrefixHeader.pch;
 				INFOPLIST_FILE = azdFly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xmazd.azdFly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -517,7 +666,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6QLN4D9TH8;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = /Users/wujianbin/Desktop/azdFly/azdFly/PrefixHeader.pch;
 				INFOPLIST_FILE = azdFly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xmazd.azdFly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -593,6 +745,7 @@
 				A360A4DB1EB3355300B043B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A360A4DC1EB3355300B043B5 /* Build configuration list for PBXNativeTarget "azdFlyTests" */ = {
 			isa = XCConfigurationList;
@@ -601,6 +754,7 @@
 				A360A4DE1EB3355300B043B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A360A4DF1EB3355300B043B5 /* Build configuration list for PBXNativeTarget "azdFlyUITests" */ = {
 			isa = XCConfigurationList;
@@ -609,6 +763,7 @@
 				A360A4E11EB3355300B043B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
