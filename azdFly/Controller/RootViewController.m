@@ -8,11 +8,33 @@
 
 #import "RootViewController.h"
 #import <DJISDK/DJISDK.h>
+#import <VideoPreviewer/VideoPreviewer.h>
+#import <MAMapKit/MAMapKit.h>
 
 //To use DJI Bridge app, change `ENTER_DEBUG_MODE` to 1 and add bridge app IP address in `debugIP` string.
 #define ENTER_DEBUG_MODE 1
 
-@interface RootViewController ()<DJISDKManagerDelegate>
+typedef NS_ENUM(NSInteger, CurrentMainWindow) {
+    CurrentMainWindowCamera,
+    CurrentMainWindowMap
+};
+
+@interface RootViewController ()<DJISDKManagerDelegate,DJICameraDelegate,DJIBaseProductDelegate,DJIVideoFeedListener,DJIPlaybackDelegate>
+
+@property (weak, nonatomic) IBOutlet UIView *fpvPreviewView;
+@property (weak, nonatomic) IBOutlet UIView *mapContainerView;
+@property (strong, nonatomic) MAMapView *mapView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *fpvPreviewViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *fpvPreviewViewWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapViewContainerHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapViewContainerWidthConstraint;
+
+
+@property (assign, nonatomic) CurrentMainWindow currentMainWindow;
+@property (strong, nonatomic) NSMutableData *downloadedImageData;
+@property (strong, nonatomic) NSMutableArray *downloadedImageArray;
+@property (assign, nonatomic) CGSize currentSmallWinSize;
 
 @end
 
@@ -22,14 +44,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //注册app
+    [self initData];
+    [self initMapView];
+    [[VideoPreviewer instance] setView:self.fpvPreviewView];
+    
     [DJISDKManager registerAppWithDelegate:self];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Custom Methods
 
 - (void)connectToProduct{
     if (ENTER_DEBUG_MODE) {
@@ -42,15 +70,107 @@
     }
 }
 
+- (DJICamera *)fetchCamera{
+    if (![DJISDKManager product]) {
+        return nil;
+    }
+    
+    if ([[DJISDKManager product] isKindOfClass:[DJIAircraft class]]) {
+        return ((DJIAircraft *)[DJISDKManager product]).camera;
+    }
+    
+    return nil;
+    
+}
+
+- (void)initData{
+    self.downloadedImageData = [NSMutableData data];
+    self.downloadedImageArray = [NSMutableArray array];
+    
+    //init current main window camera
+    self.currentMainWindow = CurrentMainWindowCamera;
+    
+    //init current small window size
+    CGFloat widthRatio = (CGFloat)160 / 667;
+    CGFloat heightRatio = (CGFloat)100 / 375;
+    self.currentSmallWinSize = CGSizeMake(KScreen_Width * widthRatio, KScreen_Height * heightRatio);
+}
+
+- (void)initPlaybackMultiSelectVC{
+    
+}
+
+- (void)initMapView{
+    self.mapView = [[MAMapView alloc] initWithFrame:self.mapContainerView.bounds];
+    self.mapView.showsScale = NO;
+    self.mapView.showsCompass = NO;
+    [self.mapContainerView addSubview:self.mapView];
+}
+
+#pragma mark - event handler
+
+/**
+ switch current main window
+
+ @param sender <#sender description#>
+ */
+- (IBAction)smallWindowBtnAction:(id)sender {
+    DMLog(@"tap small window");
+    if (self.currentMainWindow == CurrentMainWindowCamera) {
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            self.mapViewContainerWidthConstraint.constant = KScreen_Width;
+            self.mapViewContainerHeightConstraint.constant = KScreen_Height;
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            self.fpvPreviewViewWidthConstraint.constant = self.currentSmallWinSize.width;
+            self.fpvPreviewViewHeightConstraint.constant = self.currentSmallWinSize.height;
+            [self.fpvPreviewView swapDepthsWithView:self.mapContainerView];
+            self.currentMainWindow = CurrentMainWindowMap;
+        }];
+    }else{
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            self.fpvPreviewViewWidthConstraint.constant = KScreen_Width;
+            self.fpvPreviewViewHeightConstraint.constant = KScreen_Height;
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            self.mapViewContainerWidthConstraint.constant = self.currentSmallWinSize.width;
+            self.mapViewContainerHeightConstraint.constant = self.currentSmallWinSize.height;
+            [self.fpvPreviewView swapDepthsWithView:self.mapContainerView];
+            self.currentMainWindow = CurrentMainWindowCamera;
+        }];
+    }
+}
+
 #pragma mark - DJISDKManagerDelegate
 - (void)appRegisteredWithError:(NSError *_Nullable)error{
     if (error == nil) {
         DMLog(@"Registration Succeeded");
         [self connectToProduct];
+        [[DJISDKManager videoFeeder].primaryVideoFeed addListener:self withQueue:nil];
+        [[VideoPreviewer instance] start];
     }else{
-        WLAlertController *alertController = [WLAlertController alertWithTitle:@"注册失败" message:error.description];
+        WLAlertController *alertController = [WLAlertController alertWithTitle:@"注册失败" message:@"请检查网络是否连接"];
         [self presentViewController:alertController animated:YES completion:nil];
     }
+}
+
+#pragma mark - DJIBaseProductDelegate
+- (void)productConnected:(DJIBaseProduct *)product{
+    if (product) {
+        [product setDelegate:self];
+        DJICamera *camera = [self fetchCamera];
+        if (camera != nil) {
+            camera.delegate = self;
+            camera.playbackManager.delegate = self;
+        }
+    }
+}
+
+#pragma mark - DJIVideoFeedListenerDelegate
+- (void)videoFeed:(DJIVideoFeed *)videoFeed didUpdateVideoData:(NSData *)videoData{
+    [[VideoPreviewer instance] push:(uint8_t *)videoData.bytes length:(int)videoData.length];
 }
 
 /*

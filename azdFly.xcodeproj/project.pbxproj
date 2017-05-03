@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		879CA05330CEF760B634DC11 /* libPods-azdFly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61CC2B936158068CD1C6AC /* libPods-azdFly.a */; };
+		A3407DD21EB9DA890092B6AB /* UIView+Z_Order.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DD11EB9DA890092B6AB /* UIView+Z_Order.m */; };
 		A360A4B11EB3355200B043B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B01EB3355200B043B5 /* main.m */; };
 		A360A4B41EB3355200B043B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B31EB3355200B043B5 /* AppDelegate.m */; };
 		A360A4BA1EB3355200B043B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A360A4B81EB3355200B043B5 /* Main.storyboard */; };
@@ -70,6 +71,8 @@
 		0A5DC5A40B6AC6175E829F1C /* Pods-azdFly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-azdFly.release.xcconfig"; path = "Pods/Target Support Files/Pods-azdFly/Pods-azdFly.release.xcconfig"; sourceTree = "<group>"; };
 		2DEFCBED59E214116DFF8A7A /* Pods-azdFly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-azdFly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-azdFly/Pods-azdFly.debug.xcconfig"; sourceTree = "<group>"; };
 		9A61CC2B936158068CD1C6AC /* libPods-azdFly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-azdFly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3407DD01EB9DA890092B6AB /* UIView+Z_Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Z_Order.h"; sourceTree = "<group>"; };
+		A3407DD11EB9DA890092B6AB /* UIView+Z_Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Z_Order.m"; sourceTree = "<group>"; };
 		A360A4AC1EB3355200B043B5 /* azdFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = azdFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A360A4B01EB3355200B043B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A360A4B21EB3355200B043B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		A398FD471EB8A4D3000FCD1A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A398FD4A1EB8B2DD000FCD1A /* WLAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAlertController.h; sourceTree = "<group>"; };
 		A398FD4B1EB8B2DD000FCD1A /* WLAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAlertController.m; sourceTree = "<group>"; };
+		A398FD9D1EB9CEDD000FCD1A /* AppMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				A398FD461EB87F34000FCD1A /* UtilMacro.h */,
+				A398FD9D1EB9CEDD000FCD1A /* AppMacro.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -273,6 +278,8 @@
 		A398FD441EB86A02000FCD1A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A3407DD01EB9DA890092B6AB /* UIView+Z_Order.h */,
+				A3407DD11EB9DA890092B6AB /* UIView+Z_Order.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -492,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A360A4B41EB3355200B043B5 /* AppDelegate.m in Sources */,
+				A3407DD21EB9DA890092B6AB /* UIView+Z_Order.m in Sources */,
 				A398FD4C1EB8B2DD000FCD1A /* WLAlertController.m in Sources */,
 				A360A4B11EB3355200B043B5 /* main.m in Sources */,
 				A398FD3E1EB865AC000FCD1A /* RootViewController.m in Sources */,

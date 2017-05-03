@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,13 +17,58 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WA-cU-bAg">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="667" id="V8V-fB-o3i"/>
+                                    <constraint firstAttribute="height" constant="375" id="vSu-pB-9Lc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYJ-Uy-eNp">
+                                <rect key="frame" x="507" y="275" width="160" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="heW-oM-6Wq"/>
+                                    <constraint firstAttribute="height" constant="100" id="nM4-T1-YyV"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnh-So-rxF" userLabel="Small Window Btn">
+                                <rect key="frame" x="507" y="275" width="160" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="71e-9Q-C0d"/>
+                                    <constraint firstAttribute="height" constant="100" id="ad5-gF-Dan"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="smallWindowBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e69-j6-q0t"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7WA-cU-bAg" secondAttribute="bottom" id="26s-LG-buf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SYJ-Uy-eNp" secondAttribute="bottom" id="7zC-hk-7lM"/>
+                            <constraint firstAttribute="trailing" secondItem="dnh-So-rxF" secondAttribute="trailing" id="G35-GP-mJw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dnh-So-rxF" secondAttribute="bottom" id="G78-7w-cWp"/>
+                            <constraint firstAttribute="trailing" secondItem="SYJ-Uy-eNp" secondAttribute="trailing" id="Hyq-8T-ZYJ"/>
+                            <constraint firstAttribute="trailing" secondItem="7WA-cU-bAg" secondAttribute="trailing" id="QuR-kc-5Ij"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fpvPreviewView" destination="7WA-cU-bAg" id="ksP-l3-a1k"/>
+                        <outlet property="fpvPreviewViewHeightConstraint" destination="vSu-pB-9Lc" id="jX1-qI-DPx"/>
+                        <outlet property="fpvPreviewViewWidthConstraint" destination="V8V-fB-o3i" id="Eip-wZ-rJS"/>
+                        <outlet property="mapContainerView" destination="SYJ-Uy-eNp" id="P7Q-IW-giG"/>
+                        <outlet property="mapViewContainerHeightConstraint" destination="nM4-T1-YyV" id="1uh-ol-fTq"/>
+                        <outlet property="mapViewContainerWidthConstraint" destination="heW-oM-6Wq" id="KXX-3c-nKT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="25.637181409295355" y="23.199999999999999"/>
         </scene>
     </scenes>
 </document>
