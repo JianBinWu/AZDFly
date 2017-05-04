@@ -57,6 +57,11 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - rewrite methods
+- (BOOL)prefersStatusBarHidden{
+    return YES;
+}
+
 #pragma mark - Custom Methods
 
 - (void)connectToProduct{
