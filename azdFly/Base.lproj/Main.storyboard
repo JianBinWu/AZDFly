@@ -23,10 +23,95 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WA-cU-bAg">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="667" id="V8V-fB-o3i"/>
                                     <constraint firstAttribute="height" constant="375" id="vSu-pB-9Lc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPc-5b-pPe" customClass="DULCameraConfigInfoWidget">
+                                <rect key="frame" x="272" y="33" width="221" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="221" id="1Th-Yu-v3y"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPV-FA-q0D" customClass="DULCameraConfigStorageWidget">
+                                <rect key="frame" x="501" y="33" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="jYb-Qa-KxX"/>
+                                    <constraint firstAttribute="height" constant="30" id="p6b-KE-s9y"/>
+                                </constraints>
+                            </view>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wt5-od-U7T">
+                                <rect key="frame" x="384" y="33" width="217" height="242"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Wt5-od-U7T" secondAttribute="height" multiplier="35:39" id="Aeo-U1-Jvm"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="wgU-o5-Bjx" kind="embed" id="pxc-rp-bDE"/>
+                                </connections>
+                            </containerView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XtU-Bt-Bt4" userLabel="Exposure Setting Container">
+                                <rect key="frame" x="384" y="33" width="217" height="242"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XtU-Bt-Bt4" secondAttribute="height" multiplier="217:242" id="QWd-2v-gBV"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="ynu-dp-Kxm" kind="embed" id="8eP-tt-c0r"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fS-fw-V37" userLabel="Right Side Bar View">
+                                <rect key="frame" x="609" y="33" width="50" height="234"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgK-Ra-Ahl" customClass="DULExposureSettingsMenu">
+                                        <rect key="frame" x="10" y="160.5" width="30" height="34.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="wgK-Ra-Ahl" secondAttribute="height" multiplier="15:17" id="273-re-0ji"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beF-cS-1fc" customClass="DULCaptureWidget">
+                                        <rect key="frame" x="0.0" y="94" width="50" height="66.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="beF-cS-1fc" secondAttribute="height" multiplier="49:65" id="G9e-mG-eaa"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9q-kA-aUe" customClass="DULPictureVideoSwitchWidget">
+                                        <rect key="frame" x="0.0" y="46" width="50" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="z9q-kA-aUe" secondAttribute="height" multiplier="56:45" id="7sI-rs-32N"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGf-c2-pXW" customClass="DULCameraSettingsMenu">
+                                        <rect key="frame" x="0.0" y="8" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="EGf-c2-pXW" secondAttribute="height" multiplier="5:3" id="ds5-Gi-z3e"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGB-Bp-fFZ" userLabel="Playback Btn">
+                                        <rect key="frame" x="9" y="203" width="32" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="TGB-Bp-fFZ" secondAttribute="height" multiplier="32:23" id="Gwm-ZD-3Ds"/>
+                                        </constraints>
+                                        <state key="normal" image="playback"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="EGf-c2-pXW" firstAttribute="top" secondItem="1fS-fw-V37" secondAttribute="top" constant="8" id="3yf-z1-GsS"/>
+                                    <constraint firstItem="wgK-Ra-Ahl" firstAttribute="leading" secondItem="1fS-fw-V37" secondAttribute="leading" constant="10" id="5th-8j-23c"/>
+                                    <constraint firstItem="beF-cS-1fc" firstAttribute="top" secondItem="z9q-kA-aUe" secondAttribute="bottom" constant="8" id="65Y-a2-vF0"/>
+                                    <constraint firstItem="TGB-Bp-fFZ" firstAttribute="top" secondItem="wgK-Ra-Ahl" secondAttribute="bottom" constant="8" id="8O7-9d-2bv"/>
+                                    <constraint firstAttribute="trailing" secondItem="wgK-Ra-Ahl" secondAttribute="trailing" constant="10" id="AKy-y4-eEO"/>
+                                    <constraint firstItem="EGf-c2-pXW" firstAttribute="leading" secondItem="1fS-fw-V37" secondAttribute="leading" id="GRs-H6-eCH"/>
+                                    <constraint firstItem="wgK-Ra-Ahl" firstAttribute="top" secondItem="beF-cS-1fc" secondAttribute="bottom" id="J5q-Dh-PwD"/>
+                                    <constraint firstItem="z9q-kA-aUe" firstAttribute="leading" secondItem="1fS-fw-V37" secondAttribute="leading" id="Xhe-RL-y9h"/>
+                                    <constraint firstAttribute="trailing" secondItem="EGf-c2-pXW" secondAttribute="trailing" id="XoN-oC-HRn"/>
+                                    <constraint firstItem="z9q-kA-aUe" firstAttribute="top" secondItem="EGf-c2-pXW" secondAttribute="bottom" constant="8" id="Yvp-lH-kxW"/>
+                                    <constraint firstAttribute="trailing" secondItem="beF-cS-1fc" secondAttribute="trailing" id="c5d-fi-KXr"/>
+                                    <constraint firstItem="beF-cS-1fc" firstAttribute="leading" secondItem="1fS-fw-V37" secondAttribute="leading" id="epV-E1-FSL"/>
+                                    <constraint firstItem="TGB-Bp-fFZ" firstAttribute="leading" secondItem="1fS-fw-V37" secondAttribute="leading" constant="9" id="hcm-iX-Icq"/>
+                                    <constraint firstAttribute="trailing" secondItem="TGB-Bp-fFZ" secondAttribute="trailing" constant="9" id="nsZ-rs-b8f"/>
+                                    <constraint firstAttribute="width" secondItem="1fS-fw-V37" secondAttribute="height" multiplier="25:117" id="ofS-IH-pJ8"/>
+                                    <constraint firstAttribute="trailing" secondItem="z9q-kA-aUe" secondAttribute="trailing" id="xNx-a4-Ja4"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MP3-mp-L05" userLabel="Left Side Bar View">
@@ -68,7 +153,7 @@
                                     <constraint firstItem="jRl-MO-rcj" firstAttribute="leading" secondItem="MP3-mp-L05" secondAttribute="leading" constant="15" id="rf9-EP-Mx9"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDT-IL-Td5">
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDT-IL-Td5" userLabel="Bottom Bar View">
                                 <rect key="frame" x="8" y="317" width="329.5" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Io0-7X-WI8" customClass="DULDashboardWidget">
@@ -152,6 +237,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Disconnected" backgroundImage="PFCL_Disconnected"/>
+                                        <connections>
+                                            <action selector="statusBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YRn-IE-6F0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -207,38 +295,88 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="pPV-FA-q0D" firstAttribute="leading" secondItem="dPc-5b-pPe" secondAttribute="trailing" constant="8" id="0fF-UW-pEr"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7WA-cU-bAg" secondAttribute="bottom" id="26s-LG-buf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NDT-IL-Td5" secondAttribute="bottom" constant="8" id="5Ng-gm-tjn"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SYJ-Uy-eNp" secondAttribute="bottom" id="7zC-hk-7lM"/>
                             <constraint firstItem="Lpx-oZ-xyb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9JM-mB-rcJ"/>
                             <constraint firstAttribute="trailing" secondItem="Lpx-oZ-xyb" secondAttribute="trailing" id="9bq-Xm-Xmw"/>
+                            <constraint firstItem="Wt5-od-U7T" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="bottom" constant="8" id="BBs-KN-MjK"/>
                             <constraint firstItem="Lpx-oZ-xyb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Bnm-jK-Nc1"/>
+                            <constraint firstItem="XtU-Bt-Bt4" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="bottom" constant="8" id="CRg-6k-8HQ"/>
+                            <constraint firstItem="dPc-5b-pPe" firstAttribute="height" secondItem="pPV-FA-q0D" secondAttribute="height" id="FVu-WC-dpt"/>
                             <constraint firstAttribute="trailing" secondItem="dnh-So-rxF" secondAttribute="trailing" id="G35-GP-mJw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dnh-So-rxF" secondAttribute="bottom" id="G78-7w-cWp"/>
+                            <constraint firstItem="1fS-fw-V37" firstAttribute="leading" secondItem="Wt5-od-U7T" secondAttribute="trailing" constant="8" id="Gae-wI-izs"/>
+                            <constraint firstItem="dPc-5b-pPe" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="bottom" constant="8" id="HXH-uF-P3B"/>
                             <constraint firstAttribute="trailing" secondItem="SYJ-Uy-eNp" secondAttribute="trailing" id="Hyq-8T-ZYJ"/>
+                            <constraint firstItem="1fS-fw-V37" firstAttribute="leading" secondItem="XtU-Bt-Bt4" secondAttribute="trailing" constant="8" id="JFE-3o-eb6"/>
+                            <constraint firstItem="1fS-fw-V37" firstAttribute="leading" secondItem="pPV-FA-q0D" secondAttribute="trailing" constant="8" id="JuW-5v-Ke5"/>
+                            <constraint firstItem="dnh-So-rxF" firstAttribute="top" secondItem="Wt5-od-U7T" secondAttribute="bottom" id="LFC-UM-Soo"/>
+                            <constraint firstAttribute="trailing" secondItem="1fS-fw-V37" secondAttribute="trailing" constant="8" id="Nve-T7-dhH"/>
                             <constraint firstAttribute="trailing" secondItem="7WA-cU-bAg" secondAttribute="trailing" id="QuR-kc-5Ij"/>
+                            <constraint firstItem="1fS-fw-V37" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="bottom" constant="8" id="SKo-Vj-fWG"/>
+                            <constraint firstItem="dnh-So-rxF" firstAttribute="top" secondItem="1fS-fw-V37" secondAttribute="bottom" constant="8" id="WLt-3X-2Z2"/>
                             <constraint firstItem="NDT-IL-Td5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="fga-xL-VHw"/>
+                            <constraint firstItem="dnh-So-rxF" firstAttribute="top" secondItem="XtU-Bt-Bt4" secondAttribute="bottom" id="jG9-Sx-Xno"/>
                             <constraint firstItem="MP3-mp-L05" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kHZ-Af-TxR"/>
                             <constraint firstItem="MP3-mp-L05" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ohU-dQ-XLw"/>
+                            <constraint firstItem="pPV-FA-q0D" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="bottom" constant="8" id="u9e-qw-NmI"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="cameraSettingContainer" destination="Wt5-od-U7T" id="0pD-QW-va0"/>
+                        <outlet property="cameraSettingsMenu" destination="EGf-c2-pXW" id="vyC-wf-6gZ"/>
+                        <outlet property="cameroInfoWidget" destination="dPc-5b-pPe" id="SsJ-u7-vOV"/>
+                        <outlet property="cameroStorageWidget" destination="pPV-FA-q0D" id="ung-i7-xBC"/>
+                        <outlet property="exposureSettingContainer" destination="XtU-Bt-Bt4" id="uz7-SX-ONn"/>
+                        <outlet property="exposureSettingMenu" destination="wgK-Ra-Ahl" id="lRt-uc-j1z"/>
                         <outlet property="fpvPreviewView" destination="7WA-cU-bAg" id="ksP-l3-a1k"/>
                         <outlet property="fpvPreviewViewHeightConstraint" destination="vSu-pB-9Lc" id="jX1-qI-DPx"/>
                         <outlet property="fpvPreviewViewWidthConstraint" destination="V8V-fB-o3i" id="Eip-wZ-rJS"/>
                         <outlet property="mapContainerView" destination="SYJ-Uy-eNp" id="P7Q-IW-giG"/>
                         <outlet property="mapViewContainerHeightConstraint" destination="nM4-T1-YyV" id="1uh-ol-fTq"/>
                         <outlet property="mapViewContainerWidthConstraint" destination="heW-oM-6Wq" id="KXX-3c-nKT"/>
+                        <outlet property="rightSideBarView" destination="1fS-fw-V37" id="0Ly-gq-8RM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67.916041979010501" y="-124"/>
+            <point key="canvasLocation" x="206.44677661169416" y="-146.40000000000001"/>
+        </scene>
+        <!--Camera Settings Controller-->
+        <scene sceneID="p4a-K1-EsH">
+            <objects>
+                <viewController id="wgU-o5-Bjx" customClass="DULCameraSettingsController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="odD-CY-qen">
+                        <rect key="frame" x="0.0" y="0.0" width="217" height="242"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="esg-5s-lge" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="206" y="707"/>
+        </scene>
+        <!--Exposure Settings Controller-->
+        <scene sceneID="wLN-qr-1D7">
+            <objects>
+                <viewController id="ynu-dp-Kxm" customClass="DULExposureSettingsController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="isO-xb-afy">
+                        <rect key="frame" x="0.0" y="0.0" width="217" height="242"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mue-ei-2j6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="472" y="706"/>
         </scene>
     </scenes>
     <resources>
         <image name="PFCL_Disconnected" width="270" height="32"/>
+        <image name="playback" width="32" height="23"/>
         <image name="setting" width="20" height="20"/>
     </resources>
 </document>

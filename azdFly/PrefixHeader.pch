@@ -15,5 +15,6 @@
 #import "AppMacro.h"
 #import "WLAlertController.h"
 #import "UIView+Z_Order.h"
+#import "AppSingleton.h"
 
 #endif /* PrefixHeader_pch */

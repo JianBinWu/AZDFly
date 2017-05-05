@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		879CA05330CEF760B634DC11 /* libPods-azdFly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61CC2B936158068CD1C6AC /* libPods-azdFly.a */; };
 		A3407DD21EB9DA890092B6AB /* UIView+Z_Order.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DD11EB9DA890092B6AB /* UIView+Z_Order.m */; };
+		A3407DDD1EBC6E1B0092B6AB /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DDC1EBC6E1B0092B6AB /* Const.m */; };
+		A3407DE11EBC6FCC0092B6AB /* AppSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DE01EBC6FCC0092B6AB /* AppSingleton.m */; };
 		A360A4B11EB3355200B043B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B01EB3355200B043B5 /* main.m */; };
 		A360A4B41EB3355200B043B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A360A4B31EB3355200B043B5 /* AppDelegate.m */; };
 		A360A4BA1EB3355200B043B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A360A4B81EB3355200B043B5 /* Main.storyboard */; };
@@ -73,6 +75,10 @@
 		9A61CC2B936158068CD1C6AC /* libPods-azdFly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-azdFly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3407DD01EB9DA890092B6AB /* UIView+Z_Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Z_Order.h"; sourceTree = "<group>"; };
 		A3407DD11EB9DA890092B6AB /* UIView+Z_Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Z_Order.m"; sourceTree = "<group>"; };
+		A3407DDB1EBC6E1B0092B6AB /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		A3407DDC1EBC6E1B0092B6AB /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
+		A3407DDF1EBC6FCC0092B6AB /* AppSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSingleton.h; sourceTree = "<group>"; };
+		A3407DE01EBC6FCC0092B6AB /* AppSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSingleton.m; sourceTree = "<group>"; };
 		A360A4AC1EB3355200B043B5 /* azdFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = azdFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A360A4B01EB3355200B043B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A360A4B21EB3355200B043B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,6 +139,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A3407DDE1EBC6FAD0092B6AB /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				A3407DDF1EBC6FCC0092B6AB /* AppSingleton.h */,
+				A3407DE01EBC6FCC0092B6AB /* AppSingleton.m */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
 		A360A4A31EB3355200B043B5 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +174,7 @@
 		A360A4AE1EB3355200B043B5 /* azdFly */ = {
 			isa = PBXGroup;
 			children = (
+				A3407DDE1EBC6FAD0092B6AB /* Singleton */,
 				A398FD391EB865AC000FCD1A /* Controller */,
 				A398FD3C1EB865AC000FCD1A /* View */,
 				A398FD3D1EB865AC000FCD1A /* Model */,
@@ -271,6 +287,8 @@
 		A398FD431EB86A02000FCD1A /* Const */ = {
 			isa = PBXGroup;
 			children = (
+				A3407DDB1EBC6E1B0092B6AB /* Const.h */,
+				A3407DDC1EBC6E1B0092B6AB /* Const.m */,
 			);
 			path = Const;
 			sourceTree = "<group>";
@@ -501,7 +519,9 @@
 				A360A4B41EB3355200B043B5 /* AppDelegate.m in Sources */,
 				A3407DD21EB9DA890092B6AB /* UIView+Z_Order.m in Sources */,
 				A398FD4C1EB8B2DD000FCD1A /* WLAlertController.m in Sources */,
+				A3407DDD1EBC6E1B0092B6AB /* Const.m in Sources */,
 				A360A4B11EB3355200B043B5 /* main.m in Sources */,
+				A3407DE11EBC6FCC0092B6AB /* AppSingleton.m in Sources */,
 				A398FD3E1EB865AC000FCD1A /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

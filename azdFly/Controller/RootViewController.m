@@ -10,6 +10,7 @@
 #import <DJISDK/DJISDK.h>
 #import <VideoPreviewer/VideoPreviewer.h>
 #import <MAMapKit/MAMapKit.h>
+#import <DJIUILibrary/DJIUILibrary.h>
 
 //To use DJI Bridge app, change `ENTER_DEBUG_MODE` to 1 and add bridge app IP address in `debugIP` string.
 #define ENTER_DEBUG_MODE 1
@@ -35,6 +36,14 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 @property (strong, nonatomic) NSMutableData *downloadedImageData;
 @property (strong, nonatomic) NSMutableArray *downloadedImageArray;
 @property (assign, nonatomic) CGSize currentSmallWinSize;
+@property (strong, nonatomic) DULPreflightChecklistController *checklistController;
+@property (weak, nonatomic) IBOutlet DULExposureSettingsMenu *exposureSettingMenu;
+@property (weak, nonatomic) IBOutlet DULCameraSettingsMenu *cameraSettingsMenu;
+@property (weak, nonatomic) IBOutlet UIView *cameraSettingContainer;
+@property (weak, nonatomic) IBOutlet UIView *exposureSettingContainer;
+@property (weak, nonatomic) IBOutlet DULCameraConfigInfoWidget *cameroInfoWidget;
+@property (weak, nonatomic) IBOutlet DULCameraConfigStorageWidget *cameroStorageWidget;
+@property (weak, nonatomic) IBOutlet UIView *rightSideBarView;
 
 @end
 
@@ -99,6 +108,23 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     CGFloat widthRatio = (CGFloat)160 / 667;
     CGFloat heightRatio = (CGFloat)100 / 375;
     self.currentSmallWinSize = CGSizeMake(KScreen_Width * widthRatio, KScreen_Height * heightRatio);
+    
+    //init a checklist controller
+    self.checklistController = [DULPreflightChecklistController preflightChecklistController];
+    
+    //implement camera and exposure setting menu's action block
+    self.cameraSettingsMenu.action = ^(){
+        DMLog(@"tap camera setting menu");
+        self.cameraSettingContainer.hidden = !self.cameraSettingContainer.hidden;
+        self.exposureSettingContainer.hidden = YES;
+    };
+    self.exposureSettingMenu.action = ^{
+        DMLog(@"tap exposure setting menu");
+        self.exposureSettingContainer.hidden = !self.exposureSettingContainer.hidden;
+        self.cameraSettingContainer.hidden = YES;
+    };
+    
+    
 }
 
 - (void)initPlaybackMultiSelectVC{
@@ -119,10 +145,15 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 
  @param sender <#sender description#>
  */
-- (IBAction)smallWindowBtnAction:(id)sender {
+- (IBAction)smallWindowBtnAction:(UIButton *)sender {
+    sender.enabled = NO;
     DMLog(@"tap small window");
     if (self.currentMainWindow == CurrentMainWindowCamera) {
-        
+        self.rightSideBarView.hidden = YES;
+        self.cameroInfoWidget.hidden = YES;
+        self.cameroStorageWidget.hidden = YES;
+        self.cameraSettingContainer.hidden = YES;
+        self.exposureSettingContainer.hidden = YES;
         [UIView animateWithDuration:0.5 animations:^{
             self.mapViewContainerWidthConstraint.constant = KScreen_Width;
             self.mapViewContainerHeightConstraint.constant = KScreen_Height;
@@ -132,6 +163,8 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
             self.fpvPreviewViewHeightConstraint.constant = self.currentSmallWinSize.height;
             [self.fpvPreviewView swapDepthsWithView:self.mapContainerView];
             self.currentMainWindow = CurrentMainWindowMap;
+            
+            sender.enabled = YES;
         }];
     }else{
         
@@ -144,8 +177,24 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
             self.mapViewContainerHeightConstraint.constant = self.currentSmallWinSize.height;
             [self.fpvPreviewView swapDepthsWithView:self.mapContainerView];
             self.currentMainWindow = CurrentMainWindowCamera;
+            
+            self.rightSideBarView.hidden = NO;
+            self.cameroInfoWidget.hidden = NO;
+            self.cameroStorageWidget.hidden = NO;
+            
+            sender.enabled = YES;
         }];
     }
+}
+
+
+/**
+ show check list
+
+ @param sender <#sender description#>
+ */
+- (IBAction)statusBtnAction:(id)sender {
+    [self presentViewController:self.checklistController animated:YES completion:nil];
 }
 
 #pragma mark - DJISDKManagerDelegate
