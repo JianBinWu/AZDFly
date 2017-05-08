@@ -24,6 +24,14 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 
 @property (weak, nonatomic) IBOutlet UIView *fpvPreviewView;
 @property (weak, nonatomic) IBOutlet UIView *mapContainerView;
+@property (weak, nonatomic) IBOutlet DULExposureSettingsMenu *exposureSettingMenu;
+@property (weak, nonatomic) IBOutlet DULCameraSettingsMenu *cameraSettingsMenu;
+@property (weak, nonatomic) IBOutlet UIView *cameraSettingContainer;
+@property (weak, nonatomic) IBOutlet UIView *exposureSettingContainer;
+@property (weak, nonatomic) IBOutlet DULCameraConfigInfoWidget *cameroInfoWidget;
+@property (weak, nonatomic) IBOutlet DULCameraConfigStorageWidget *cameroStorageWidget;
+@property (weak, nonatomic) IBOutlet UIView *rightSideBarView;
+@property (weak, nonatomic) IBOutlet DULPreFlightStatusWidget *preFlightStatusWidget;
 @property (strong, nonatomic) MAMapView *mapView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *fpvPreviewViewHeightConstraint;
@@ -36,14 +44,9 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 @property (strong, nonatomic) NSMutableData *downloadedImageData;
 @property (strong, nonatomic) NSMutableArray *downloadedImageArray;
 @property (assign, nonatomic) CGSize currentSmallWinSize;
+@property (assign, nonatomic) CGFloat originalMapLogoCenterX;
 @property (strong, nonatomic) DULPreflightChecklistController *checklistController;
-@property (weak, nonatomic) IBOutlet DULExposureSettingsMenu *exposureSettingMenu;
-@property (weak, nonatomic) IBOutlet DULCameraSettingsMenu *cameraSettingsMenu;
-@property (weak, nonatomic) IBOutlet UIView *cameraSettingContainer;
-@property (weak, nonatomic) IBOutlet UIView *exposureSettingContainer;
-@property (weak, nonatomic) IBOutlet DULCameraConfigInfoWidget *cameroInfoWidget;
-@property (weak, nonatomic) IBOutlet DULCameraConfigStorageWidget *cameroStorageWidget;
-@property (weak, nonatomic) IBOutlet UIView *rightSideBarView;
+
 
 @end
 
@@ -54,6 +57,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     [super viewDidLoad];
     
     [self initData];
+    [self initEventHandler];
     [self initMapView];
     [[VideoPreviewer instance] setView:self.fpvPreviewView];
     
@@ -75,7 +79,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 
 - (void)connectToProduct{
     if (ENTER_DEBUG_MODE) {
-        NSString *debugIP = @"10.0.1.91";
+        NSString *debugIP = @"10.0.1.108";
         DMLog(@"Connecting to Product using debug IP address:%@",debugIP);
         [DJISDKManager enableBridgeModeWithBridgeAppIP:debugIP];
     }else{
@@ -112,6 +116,10 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     //init a checklist controller
     self.checklistController = [DULPreflightChecklistController preflightChecklistController];
     
+    
+}
+
+- (void)initEventHandler{
     //implement camera and exposure setting menu's action block
     self.cameraSettingsMenu.action = ^(){
         DMLog(@"tap camera setting menu");
@@ -124,7 +132,9 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
         self.cameraSettingContainer.hidden = YES;
     };
     
-    
+    //init a tap gesture for preflight status widget
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(preFlightStatusWidgetTapAction:)];
+    [self.preFlightStatusWidget addGestureRecognizer:tapGesture];
 }
 
 - (void)initPlaybackMultiSelectVC{
@@ -136,6 +146,10 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     self.mapView.showsScale = NO;
     self.mapView.showsCompass = NO;
     [self.mapContainerView addSubview:self.mapView];
+    
+    //change map logo center
+    self.originalMapLogoCenterX = self.mapView.logoCenter.x;
+//    self.mapView.logoCenter = CGPointMake(self.mapView.bounds.size.width - self.originalMapLogoCenterX, self.mapView.logoCenter.y);
 }
 
 #pragma mark - event handler
@@ -171,6 +185,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
         [UIView animateWithDuration:0.5 animations:^{
             self.fpvPreviewViewWidthConstraint.constant = KScreen_Width;
             self.fpvPreviewViewHeightConstraint.constant = KScreen_Height;
+            
             [self.view layoutIfNeeded];
         } completion:^(BOOL finished) {
             self.mapViewContainerWidthConstraint.constant = self.currentSmallWinSize.width;
@@ -191,9 +206,9 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 /**
  show check list
 
- @param sender <#sender description#>
+ @param gestureRecognizer <#sender description#>
  */
-- (IBAction)statusBtnAction:(id)sender {
+- (void)preFlightStatusWidgetTapAction:(UITapGestureRecognizer *)gestureRecognizer {
     [self presentViewController:self.checklistController animated:YES completion:nil];
 }
 

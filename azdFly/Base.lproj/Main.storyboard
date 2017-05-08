@@ -60,7 +60,7 @@
                                     <segue destination="ynu-dp-Kxm" kind="embed" id="8eP-tt-c0r"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fS-fw-V37" userLabel="Right Side Bar View">
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fS-fw-V37" userLabel="Right Side Bar View">
                                 <rect key="frame" x="609" y="33" width="50" height="234"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgK-Ra-Ahl" customClass="DULExposureSettingsMenu">
@@ -95,6 +95,7 @@
                                         <state key="normal" image="playback"/>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstItem="EGf-c2-pXW" firstAttribute="top" secondItem="1fS-fw-V37" secondAttribute="top" constant="8" id="3yf-z1-GsS"/>
                                     <constraint firstItem="wgK-Ra-Ahl" firstAttribute="leading" secondItem="1fS-fw-V37" secondAttribute="leading" constant="10" id="5th-8j-23c"/>
@@ -223,49 +224,46 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iOv-pJ-Um7">
-                                        <rect key="frame" x="8" y="0.0" width="50" height="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AZD Fly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tU2-9k-LuH">
+                                        <rect key="frame" x="3" y="2" width="55" height="23"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="iOv-pJ-Um7" secondAttribute="height" multiplier="2:1" id="x5h-sn-gas"/>
+                                            <constraint firstAttribute="width" secondItem="tU2-9k-LuH" secondAttribute="height" multiplier="12:5" id="o3C-Yk-nG9"/>
                                         </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ul-52-zZI">
-                                        <rect key="frame" x="66" y="0.0" width="210.5" height="25"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZR-AX-tQb" customClass="DULPreFlightStatusWidget">
+                                        <rect key="frame" x="61" y="0.0" width="232" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="1Ul-52-zZI" secondAttribute="height" multiplier="135:16" id="Duu-Ch-Vu7"/>
+                                            <constraint firstAttribute="width" secondItem="dZR-AX-tQb" secondAttribute="height" multiplier="297:32" id="zl3-Hs-mnr"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Disconnected" backgroundImage="PFCL_Disconnected"/>
-                                        <connections>
-                                            <action selector="statusBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YRn-IE-6F0"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="tU2-9k-LuH" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" constant="2" id="3l5-s7-NYb"/>
                                     <constraint firstItem="6ei-QI-vaV" firstAttribute="leading" secondItem="KY8-np-Fn6" secondAttribute="trailing" constant="8" id="42G-vT-mSA"/>
+                                    <constraint firstItem="dZR-AX-tQb" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" id="4t7-8p-tDh"/>
                                     <constraint firstItem="KY8-np-Fn6" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" constant="5" id="7iF-C8-oC8"/>
                                     <constraint firstAttribute="bottom" secondItem="TdG-yR-k9u" secondAttribute="bottom" constant="5" id="9uf-px-DVo"/>
                                     <constraint firstAttribute="bottom" secondItem="tM0-KU-XnV" secondAttribute="bottom" constant="5" id="CHr-zm-SI9"/>
-                                    <constraint firstItem="iOv-pJ-Um7" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" id="Fm0-nb-tAp"/>
                                     <constraint firstAttribute="bottom" secondItem="zab-S1-nOk" secondAttribute="bottom" constant="5" id="Fq4-Gs-Jic"/>
-                                    <constraint firstItem="1Ul-52-zZI" firstAttribute="leading" secondItem="iOv-pJ-Um7" secondAttribute="trailing" constant="8" id="Goa-kZ-cgW"/>
-                                    <constraint firstItem="1Ul-52-zZI" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" id="I5F-tl-c4V"/>
                                     <constraint firstItem="izA-b7-acV" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" constant="5" id="JNV-Df-Tew"/>
-                                    <constraint firstItem="iOv-pJ-Um7" firstAttribute="leading" secondItem="Lpx-oZ-xyb" secondAttribute="leading" constant="8" id="Kdt-2Y-tQE"/>
                                     <constraint firstAttribute="width" secondItem="Lpx-oZ-xyb" secondAttribute="height" multiplier="667:25" id="Knj-ad-fVu"/>
                                     <constraint firstAttribute="bottom" secondItem="KY8-np-Fn6" secondAttribute="bottom" constant="5" id="Knr-YN-Rn5"/>
-                                    <constraint firstAttribute="bottom" secondItem="iOv-pJ-Um7" secondAttribute="bottom" id="Koo-yN-kl2"/>
                                     <constraint firstItem="zab-S1-nOk" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" constant="5" id="MbA-6t-ZTi"/>
+                                    <constraint firstAttribute="bottom" secondItem="tU2-9k-LuH" secondAttribute="bottom" id="NGF-RA-HF4"/>
+                                    <constraint firstItem="tU2-9k-LuH" firstAttribute="leading" secondItem="Lpx-oZ-xyb" secondAttribute="leading" constant="3" id="QcB-Rq-cu2"/>
                                     <constraint firstItem="izA-b7-acV" firstAttribute="leading" secondItem="tM0-KU-XnV" secondAttribute="trailing" constant="8" id="Qcn-Vj-0lH"/>
                                     <constraint firstItem="TdG-yR-k9u" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" constant="5" id="U8G-nS-vnk"/>
                                     <constraint firstAttribute="bottom" secondItem="J4G-kX-VTP" secondAttribute="bottom" constant="5" id="Vl9-0z-1Af"/>
-                                    <constraint firstAttribute="bottom" secondItem="1Ul-52-zZI" secondAttribute="bottom" id="Xei-25-jzB"/>
                                     <constraint firstItem="zab-S1-nOk" firstAttribute="leading" secondItem="TdG-yR-k9u" secondAttribute="trailing" constant="16" id="ZO9-Hi-Wgj"/>
                                     <constraint firstItem="tM0-KU-XnV" firstAttribute="leading" secondItem="zab-S1-nOk" secondAttribute="trailing" constant="8" id="ZX0-PP-JoS"/>
+                                    <constraint firstAttribute="bottom" secondItem="dZR-AX-tQb" secondAttribute="bottom" id="fxA-rJ-Ywy"/>
                                     <constraint firstItem="KY8-np-Fn6" firstAttribute="leading" secondItem="J4G-kX-VTP" secondAttribute="trailing" constant="8" id="fzm-Vy-Hu4"/>
                                     <constraint firstItem="J4G-kX-VTP" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" constant="5" id="h7M-VC-rbR"/>
+                                    <constraint firstItem="dZR-AX-tQb" firstAttribute="leading" secondItem="tU2-9k-LuH" secondAttribute="trailing" constant="3" id="hZh-e4-b6E"/>
                                     <constraint firstItem="6ei-QI-vaV" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" constant="5" id="nvM-d5-oXh"/>
                                     <constraint firstItem="tM0-KU-XnV" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" constant="5" id="tG0-PU-9be"/>
                                     <constraint firstAttribute="trailing" secondItem="izA-b7-acV" secondAttribute="trailing" constant="8" id="tXm-ZD-Zhb"/>
@@ -338,6 +336,7 @@
                         <outlet property="mapContainerView" destination="SYJ-Uy-eNp" id="P7Q-IW-giG"/>
                         <outlet property="mapViewContainerHeightConstraint" destination="nM4-T1-YyV" id="1uh-ol-fTq"/>
                         <outlet property="mapViewContainerWidthConstraint" destination="heW-oM-6Wq" id="KXX-3c-nKT"/>
+                        <outlet property="preFlightStatusWidget" destination="dZR-AX-tQb" id="nQ4-H1-Ej8"/>
                         <outlet property="rightSideBarView" destination="1fS-fw-V37" id="0Ly-gq-8RM"/>
                     </connections>
                 </viewController>
@@ -349,6 +348,10 @@
         <scene sceneID="p4a-K1-EsH">
             <objects>
                 <viewController id="wgU-o5-Bjx" customClass="DULCameraSettingsController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OV3-4z-5zp"/>
+                        <viewControllerLayoutGuide type="bottom" id="CtC-Fq-H1S"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="odD-CY-qen">
                         <rect key="frame" x="0.0" y="0.0" width="217" height="242"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -363,6 +366,10 @@
         <scene sceneID="wLN-qr-1D7">
             <objects>
                 <viewController id="ynu-dp-Kxm" customClass="DULExposureSettingsController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eAu-eI-1UZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="PA4-VE-5wi"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="isO-xb-afy">
                         <rect key="frame" x="0.0" y="0.0" width="217" height="242"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,7 +382,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PFCL_Disconnected" width="270" height="32"/>
         <image name="playback" width="32" height="23"/>
         <image name="setting" width="20" height="20"/>
     </resources>
