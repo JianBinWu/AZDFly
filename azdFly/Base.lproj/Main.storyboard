@@ -29,6 +29,16 @@
                                     <constraint firstAttribute="height" constant="375" id="vSu-pB-9Lc"/>
                                 </constraints>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXz-KP-q1t">
+                                <rect key="frame" x="293" y="147" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dXz-KP-q1t" secondAttribute="height" multiplier="1:1" id="766-MK-KYw"/>
+                                </constraints>
+                                <state key="normal" image="playVideo"/>
+                                <connections>
+                                    <action selector="playBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oyW-pe-lgs"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPc-5b-pPe" customClass="DULCameraConfigInfoWidget">
                                 <rect key="frame" x="272" y="33" width="221" height="30"/>
                                 <constraints>
@@ -93,6 +103,9 @@
                                             <constraint firstAttribute="width" secondItem="TGB-Bp-fFZ" secondAttribute="height" multiplier="32:23" id="Gwm-ZD-3Ds"/>
                                         </constraints>
                                         <state key="normal" image="playback"/>
+                                        <connections>
+                                            <action selector="playbackBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xdt-CF-pet"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -295,6 +308,7 @@
                         <constraints>
                             <constraint firstItem="pPV-FA-q0D" firstAttribute="leading" secondItem="dPc-5b-pPe" secondAttribute="trailing" constant="8" id="0fF-UW-pEr"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7WA-cU-bAg" secondAttribute="bottom" id="26s-LG-buf"/>
+                            <constraint firstAttribute="bottom" secondItem="dXz-KP-q1t" secondAttribute="bottom" constant="148" id="474-Ag-arc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NDT-IL-Td5" secondAttribute="bottom" constant="8" id="5Ng-gm-tjn"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SYJ-Uy-eNp" secondAttribute="bottom" id="7zC-hk-7lM"/>
                             <constraint firstItem="Lpx-oZ-xyb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9JM-mB-rcJ"/>
@@ -312,9 +326,11 @@
                             <constraint firstItem="1fS-fw-V37" firstAttribute="leading" secondItem="pPV-FA-q0D" secondAttribute="trailing" constant="8" id="JuW-5v-Ke5"/>
                             <constraint firstItem="dnh-So-rxF" firstAttribute="top" secondItem="Wt5-od-U7T" secondAttribute="bottom" id="LFC-UM-Soo"/>
                             <constraint firstAttribute="trailing" secondItem="1fS-fw-V37" secondAttribute="trailing" constant="8" id="Nve-T7-dhH"/>
+                            <constraint firstItem="dXz-KP-q1t" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="147" id="Om9-N0-9lG"/>
                             <constraint firstAttribute="trailing" secondItem="7WA-cU-bAg" secondAttribute="trailing" id="QuR-kc-5Ij"/>
                             <constraint firstItem="1fS-fw-V37" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="bottom" constant="8" id="SKo-Vj-fWG"/>
                             <constraint firstItem="dnh-So-rxF" firstAttribute="top" secondItem="1fS-fw-V37" secondAttribute="bottom" constant="8" id="WLt-3X-2Z2"/>
+                            <constraint firstItem="dXz-KP-q1t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fZO-D6-r9P"/>
                             <constraint firstItem="NDT-IL-Td5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="fga-xL-VHw"/>
                             <constraint firstItem="dnh-So-rxF" firstAttribute="top" secondItem="XtU-Bt-Bt4" secondAttribute="bottom" id="jG9-Sx-Xno"/>
                             <constraint firstItem="MP3-mp-L05" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kHZ-Af-TxR"/>
@@ -324,20 +340,25 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="bottomBarView" destination="NDT-IL-Td5" id="YT9-Ue-ELn"/>
+                        <outlet property="cameraInfoWidget" destination="dPc-5b-pPe" id="U3O-yh-U8l"/>
                         <outlet property="cameraSettingContainer" destination="Wt5-od-U7T" id="0pD-QW-va0"/>
                         <outlet property="cameraSettingsMenu" destination="EGf-c2-pXW" id="vyC-wf-6gZ"/>
-                        <outlet property="cameroInfoWidget" destination="dPc-5b-pPe" id="SsJ-u7-vOV"/>
-                        <outlet property="cameroStorageWidget" destination="pPV-FA-q0D" id="ung-i7-xBC"/>
+                        <outlet property="cameraStorageWidget" destination="pPV-FA-q0D" id="ny1-5s-0u2"/>
                         <outlet property="exposureSettingContainer" destination="XtU-Bt-Bt4" id="uz7-SX-ONn"/>
                         <outlet property="exposureSettingMenu" destination="wgK-Ra-Ahl" id="lRt-uc-j1z"/>
                         <outlet property="fpvPreviewView" destination="7WA-cU-bAg" id="ksP-l3-a1k"/>
                         <outlet property="fpvPreviewViewHeightConstraint" destination="vSu-pB-9Lc" id="jX1-qI-DPx"/>
                         <outlet property="fpvPreviewViewWidthConstraint" destination="V8V-fB-o3i" id="Eip-wZ-rJS"/>
+                        <outlet property="leftSideBarView" destination="MP3-mp-L05" id="s1A-Hi-2z0"/>
                         <outlet property="mapContainerView" destination="SYJ-Uy-eNp" id="P7Q-IW-giG"/>
                         <outlet property="mapViewContainerHeightConstraint" destination="nM4-T1-YyV" id="1uh-ol-fTq"/>
                         <outlet property="mapViewContainerWidthConstraint" destination="heW-oM-6Wq" id="KXX-3c-nKT"/>
+                        <outlet property="playVideoBtn" destination="dXz-KP-q1t" id="Utm-jt-QxN"/>
                         <outlet property="preFlightStatusWidget" destination="dZR-AX-tQb" id="nQ4-H1-Ej8"/>
                         <outlet property="rightSideBarView" destination="1fS-fw-V37" id="0Ly-gq-8RM"/>
+                        <outlet property="smallWindowBtn" destination="dnh-So-rxF" id="HPo-hc-XUG"/>
+                        <outlet property="statusBarView" destination="Lpx-oZ-xyb" id="w10-2t-XyK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -382,6 +403,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="playVideo" width="218" height="218"/>
         <image name="playback" width="32" height="23"/>
         <image name="setting" width="20" height="20"/>
     </resources>

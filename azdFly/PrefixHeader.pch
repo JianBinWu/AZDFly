@@ -16,5 +16,7 @@
 #import "WLAlertController.h"
 #import "UIView+Z_Order.h"
 #import "AppSingleton.h"
+#import <DJISDK/DJISDK.h>
+#import <MAMapKit/MAMapKit.h>
 
 #endif /* PrefixHeader_pch */

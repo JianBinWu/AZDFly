@@ -33,6 +33,17 @@
     
 }
 
++ (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message actionBlock:(void(^)(UIAlertAction *action))actionBlock{
+    
+    WLAlertController *alertController = [WLAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"是的" style:UIAlertActionStyleDefault handler:actionBlock];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:alertAction];
+    [alertController addAction:cancelAction];
+    return alertController;
+    
+}
+
 /*
 #pragma mark - Navigation
 

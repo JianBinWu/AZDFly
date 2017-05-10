@@ -12,4 +12,6 @@
 
 + (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message;
 
++ (instancetype)alertWithTitle:(NSString *)title message:(NSString *)message actionBlock:(void(^)(UIAlertAction *action))actionBlock;
+
 @end
