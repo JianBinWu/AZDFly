@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <IQKeyboardManager.h>
 
 @interface AppDelegate ()
 
@@ -19,6 +19,7 @@ static NSString * const AMapAppKey = @"de702b6717ad5854dfb31bd7130b0f7a";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [AMapServices sharedServices].apiKey = AMapAppKey;
+    [IQKeyboardManager sharedManager].enable = YES;
     return YES;
 }
 

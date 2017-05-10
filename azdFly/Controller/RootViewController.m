@@ -644,8 +644,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
             flightController.delegate = self;
         }
         
-//        //reload map for aircraft annotation
-//        [self.mapView reloadMap];
+        [self focusMap];
     }else{
         DMLog(@"disconnected");
     }

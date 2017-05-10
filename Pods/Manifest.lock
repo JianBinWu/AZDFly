@@ -4,18 +4,21 @@ PODS:
   - AMapFoundation (1.4.0)
   - DJI-SDK-iOS (4.0.1)
   - DJI-UILibrary-iOS (4.0.1.1.0.0)
+  - IQKeyboardManager (4.0.9)
 
 DEPENDENCIES:
   - AMap3DMap
   - DJI-SDK-iOS (~> 4.0.1)
   - DJI-UILibrary-iOS (~> 4.0.1.1.0.0)
+  - IQKeyboardManager
 
 SPEC CHECKSUMS:
   AMap3DMap: 4d0a53d0e57c7c758560225dfdaf593b306bd468
   AMapFoundation: 458974f46a39df8407fd818ab83d2630d494c726
   DJI-SDK-iOS: 2b41afc24ef6388feb035c8bc1fb72fd535ec256
   DJI-UILibrary-iOS: ec4757392b353797eb8998426f9cc385a0625e71
+  IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
 
-PODFILE CHECKSUM: dc4a28b7c10cf67353778c21d2958cbd452bd923
+PODFILE CHECKSUM: b75968bc2831f690deb7c54214967c7bb5b0a9f9
 
 COCOAPODS: 1.2.1
