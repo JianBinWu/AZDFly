@@ -5,4 +5,6 @@ target 'azdFly' do
   pod ‘DJI-UILibrary-iOS’, '~> 4.0.1.1.0.0'
   pod 'AMap3DMap'
   pod 'IQKeyboardManager'
+  pod 'Masonry'
+  
 end

@@ -31,7 +31,7 @@
     NSArray *annos = [NSArray arrayWithArray:mapView.annotations];
     for (int i = 0; i < annos.count; i++) {
         id<MKAnnotation> ann = [annos objectAtIndex:i];
-        if (![ann isEqual:self.aircraftAnnotation]) {
+        if (!([ann isEqual:self.aircraftAnnotation] ||[ann isEqual:self.userLocationAnnotation])) {
             [mapView removeAnnotation:ann];
         }
     }
@@ -50,7 +50,7 @@
 
 - (void)updateAircraftLocation:(CLLocationCoordinate2D)location withMapView:(MAMapView *)mapView{
     if (self.aircraftAnnotation == nil) {
-        self.aircraftAnnotation = [[DJIAircraftAnnotation alloc] initWithCoordinate:location];
+        self.aircraftAnnotation = [[AircraftAnnotation alloc] initWithCoordinate:location];
         [mapView addAnnotation:self.aircraftAnnotation];
     }
     

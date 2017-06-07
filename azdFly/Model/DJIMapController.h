@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "DJIAircraftAnnotation.h"
+#import "AircraftAnnotation.h"
 
 @interface DJIMapController : NSObject
 @property (strong, nonatomic) NSMutableArray *editPoints;
-@property (strong, nonatomic) DJIAircraftAnnotation *aircraftAnnotation;
+@property (strong, nonatomic) AircraftAnnotation *aircraftAnnotation;
+@property (weak, nonatomic) MAPointAnnotation *userLocationAnnotation;
 
 - (void)addPoint:(CGPoint)point withMapView:(MAMapView *)mapView;
 
@@ -25,4 +26,5 @@
 - (void)updateAircraftLocation:(CLLocationCoordinate2D)location withMapView:(MAMapView *)mapView;
 
 - (void)updateAircraftHeading:(float)heading;
+
 @end

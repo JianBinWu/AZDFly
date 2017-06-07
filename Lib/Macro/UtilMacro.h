@@ -12,8 +12,8 @@
 //NSLog替代宏
 #ifdef DEBUG
 
-#define DMLog(...) NSLog(@"%@",[NSString stringWithFormat:__VA_ARGS__])
-#define ERRORLog(...) NSLog(@"\n\n Error: \n method:%s \n file: %s \n line: %d \n %@ \n\n",__PRETTY_FUNCTION__,__FILE__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#define DMLog(...) printf("%s\n",[[NSString stringWithFormat:__VA_ARGS__] UTF8String])
+#define ERRORLog(...) printf("\n\n Error: \n method:%s \n file: %s \n line: %d \n %s \n\n",__PRETTY_FUNCTION__,__FILE__,__LINE__,[[NSString stringWithFormat:__VA_ARGS__] UTF8String])
 
 #else
 

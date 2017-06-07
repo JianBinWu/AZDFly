@@ -14,8 +14,8 @@
 		A30811D21EC1ADBA002B9A43 /* DJIGSButtonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30811CD1EC1ADBA002B9A43 /* DJIGSButtonController.xib */; };
 		A30811D31EC1ADBA002B9A43 /* DJIWaypointConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30811CF1EC1ADBA002B9A43 /* DJIWaypointConfigViewController.m */; };
 		A30811D41EC1ADBA002B9A43 /* DJIWaypointConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30811D01EC1ADBA002B9A43 /* DJIWaypointConfigViewController.xib */; };
-		A30811D71EC1AE56002B9A43 /* DJIAircraftAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A30811D61EC1AE56002B9A43 /* DJIAircraftAnnotationView.m */; };
-		A30811DC1EC1AE61002B9A43 /* DJIAircraftAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A30811D91EC1AE61002B9A43 /* DJIAircraftAnnotation.m */; };
+		A30811D71EC1AE56002B9A43 /* AircraftAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A30811D61EC1AE56002B9A43 /* AircraftAnnotationView.m */; };
+		A30811DC1EC1AE61002B9A43 /* AircraftAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A30811D91EC1AE61002B9A43 /* AircraftAnnotation.m */; };
 		A30811DD1EC1AE61002B9A43 /* DJIMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30811DB1EC1AE61002B9A43 /* DJIMapController.m */; };
 		A3407DD21EB9DA890092B6AB /* UIView+Z_Order.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DD11EB9DA890092B6AB /* UIView+Z_Order.m */; };
 		A3407DDD1EBC6E1B0092B6AB /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DDC1EBC6E1B0092B6AB /* Const.m */; };
@@ -91,10 +91,10 @@
 		A30811CE1EC1ADBA002B9A43 /* DJIWaypointConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJIWaypointConfigViewController.h; sourceTree = "<group>"; };
 		A30811CF1EC1ADBA002B9A43 /* DJIWaypointConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJIWaypointConfigViewController.m; sourceTree = "<group>"; };
 		A30811D01EC1ADBA002B9A43 /* DJIWaypointConfigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DJIWaypointConfigViewController.xib; sourceTree = "<group>"; };
-		A30811D51EC1AE56002B9A43 /* DJIAircraftAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJIAircraftAnnotationView.h; sourceTree = "<group>"; };
-		A30811D61EC1AE56002B9A43 /* DJIAircraftAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJIAircraftAnnotationView.m; sourceTree = "<group>"; };
-		A30811D81EC1AE61002B9A43 /* DJIAircraftAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJIAircraftAnnotation.h; sourceTree = "<group>"; };
-		A30811D91EC1AE61002B9A43 /* DJIAircraftAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJIAircraftAnnotation.m; sourceTree = "<group>"; };
+		A30811D51EC1AE56002B9A43 /* AircraftAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AircraftAnnotationView.h; sourceTree = "<group>"; };
+		A30811D61EC1AE56002B9A43 /* AircraftAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AircraftAnnotationView.m; sourceTree = "<group>"; };
+		A30811D81EC1AE61002B9A43 /* AircraftAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AircraftAnnotation.h; sourceTree = "<group>"; };
+		A30811D91EC1AE61002B9A43 /* AircraftAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AircraftAnnotation.m; sourceTree = "<group>"; };
 		A30811DA1EC1AE61002B9A43 /* DJIMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJIMapController.h; sourceTree = "<group>"; };
 		A30811DB1EC1AE61002B9A43 /* DJIMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJIMapController.m; sourceTree = "<group>"; };
 		A3407DD01EB9DA890092B6AB /* UIView+Z_Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Z_Order.h"; sourceTree = "<group>"; };
@@ -269,8 +269,8 @@
 		A398FD3C1EB865AC000FCD1A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A30811D51EC1AE56002B9A43 /* DJIAircraftAnnotationView.h */,
-				A30811D61EC1AE56002B9A43 /* DJIAircraftAnnotationView.m */,
+				A30811D51EC1AE56002B9A43 /* AircraftAnnotationView.h */,
+				A30811D61EC1AE56002B9A43 /* AircraftAnnotationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -278,8 +278,8 @@
 		A398FD3D1EB865AC000FCD1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A30811D81EC1AE61002B9A43 /* DJIAircraftAnnotation.h */,
-				A30811D91EC1AE61002B9A43 /* DJIAircraftAnnotation.m */,
+				A30811D81EC1AE61002B9A43 /* AircraftAnnotation.h */,
+				A30811D91EC1AE61002B9A43 /* AircraftAnnotation.m */,
 				A30811DA1EC1AE61002B9A43 /* DJIMapController.h */,
 				A30811DB1EC1AE61002B9A43 /* DJIMapController.m */,
 			);
@@ -558,14 +558,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A30811DC1EC1AE61002B9A43 /* DJIAircraftAnnotation.m in Sources */,
+				A30811DC1EC1AE61002B9A43 /* AircraftAnnotation.m in Sources */,
 				A360A4B41EB3355200B043B5 /* AppDelegate.m in Sources */,
 				A30811BF1EC05838002B9A43 /* DJIPlaybackMultiSelectViewController.m in Sources */,
 				A3407DD21EB9DA890092B6AB /* UIView+Z_Order.m in Sources */,
 				A398FD4C1EB8B2DD000FCD1A /* WLAlertController.m in Sources */,
 				A30811D11EC1ADBA002B9A43 /* DJIGSButtonController.m in Sources */,
 				A3407DDD1EBC6E1B0092B6AB /* Const.m in Sources */,
-				A30811D71EC1AE56002B9A43 /* DJIAircraftAnnotationView.m in Sources */,
+				A30811D71EC1AE56002B9A43 /* AircraftAnnotationView.m in Sources */,
 				A360A4B11EB3355200B043B5 /* main.m in Sources */,
 				A3407DE11EBC6FCC0092B6AB /* AppSingleton.m in Sources */,
 				A30811DD1EC1AE61002B9A43 /* DJIMapController.m in Sources */,

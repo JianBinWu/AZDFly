@@ -189,45 +189,48 @@
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lpx-oZ-xyb" userLabel="Status Bar View">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="25"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izA-b7-acV">
-                                        <rect key="frame" x="644" y="5" width="15" height="15"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izA-b7-acV" userLabel="Setting">
+                                        <rect key="frame" x="634" y="0.0" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="izA-b7-acV" secondAttribute="height" multiplier="1:1" id="tei-dl-0sz"/>
                                         </constraints>
                                         <state key="normal" image="setting"/>
+                                        <connections>
+                                            <action selector="settingBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jWD-VF-5cU"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tM0-KU-XnV" customClass="DULBatteryWidget">
-                                        <rect key="frame" x="599" y="5" width="37" height="15"/>
+                                        <rect key="frame" x="589" y="5" width="37" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tM0-KU-XnV" secondAttribute="height" multiplier="22:9" id="DzN-dh-Kdh"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zab-S1-nOk" customClass="DULRemoteControlSignalWidget">
-                                        <rect key="frame" x="560" y="5" width="31" height="15"/>
+                                        <rect key="frame" x="550" y="5" width="31" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zab-S1-nOk" secondAttribute="height" multiplier="19:9" id="25Z-QJ-UEh"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdG-yR-k9u" customClass="DULVideoSignalWidget">
-                                        <rect key="frame" x="518" y="5" width="26" height="15"/>
+                                        <rect key="frame" x="508" y="5" width="26" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="TdG-yR-k9u" secondAttribute="height" multiplier="19:11" id="Vcy-3H-0o6"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ei-QI-vaV" customClass="DULGPSSignalWidget">
-                                        <rect key="frame" x="480" y="5" width="38" height="15"/>
+                                        <rect key="frame" x="470" y="5" width="38" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="6ei-QI-vaV" secondAttribute="height" multiplier="38:15" id="ggL-v6-95x"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KY8-np-Fn6" customClass="DULVisionWidget">
-                                        <rect key="frame" x="457" y="5" width="15" height="15"/>
+                                        <rect key="frame" x="447" y="5" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KY8-np-Fn6" secondAttribute="height" multiplier="1:1" id="wxD-iP-tNH"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-kX-VTP" customClass="DULFlightModeWidget">
-                                        <rect key="frame" x="362.5" y="5" width="86.5" height="15"/>
+                                        <rect key="frame" x="352.5" y="5" width="86.5" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="J4G-kX-VTP" secondAttribute="height" multiplier="86:15" id="GmC-VG-42m"/>
                                         </constraints>
@@ -262,7 +265,7 @@
                                     <constraint firstAttribute="bottom" secondItem="TdG-yR-k9u" secondAttribute="bottom" constant="5" id="9uf-px-DVo"/>
                                     <constraint firstAttribute="bottom" secondItem="tM0-KU-XnV" secondAttribute="bottom" constant="5" id="CHr-zm-SI9"/>
                                     <constraint firstAttribute="bottom" secondItem="zab-S1-nOk" secondAttribute="bottom" constant="5" id="Fq4-Gs-Jic"/>
-                                    <constraint firstItem="izA-b7-acV" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" constant="5" id="JNV-Df-Tew"/>
+                                    <constraint firstItem="izA-b7-acV" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" id="JNV-Df-Tew"/>
                                     <constraint firstAttribute="width" secondItem="Lpx-oZ-xyb" secondAttribute="height" multiplier="667:25" id="Knj-ad-fVu"/>
                                     <constraint firstAttribute="bottom" secondItem="KY8-np-Fn6" secondAttribute="bottom" constant="5" id="Knr-YN-Rn5"/>
                                     <constraint firstItem="zab-S1-nOk" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="top" constant="5" id="MbA-6t-ZTi"/>
@@ -282,7 +285,7 @@
                                     <constraint firstAttribute="trailing" secondItem="izA-b7-acV" secondAttribute="trailing" constant="8" id="tXm-ZD-Zhb"/>
                                     <constraint firstAttribute="bottom" secondItem="6ei-QI-vaV" secondAttribute="bottom" constant="5" id="vnj-Hm-VcR"/>
                                     <constraint firstItem="TdG-yR-k9u" firstAttribute="leading" secondItem="6ei-QI-vaV" secondAttribute="trailing" id="vsO-MU-P9b"/>
-                                    <constraint firstAttribute="bottom" secondItem="izA-b7-acV" secondAttribute="bottom" constant="5" id="x6R-oH-tqs"/>
+                                    <constraint firstAttribute="bottom" secondItem="izA-b7-acV" secondAttribute="bottom" id="x6R-oH-tqs"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYJ-Uy-eNp">

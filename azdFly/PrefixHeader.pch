@@ -18,5 +18,7 @@
 #import "AppSingleton.h"
 #import <DJISDK/DJISDK.h>
 #import <MAMapKit/MAMapKit.h>
+#define MAS_SHORTHAND
+#import <Masonry.h>
 
 #endif /* PrefixHeader_pch */

@@ -16,7 +16,7 @@
 
 
 //To use DJI Bridge app, change `ENTER_DEBUG_MODE` to 1 and add bridge app IP address in `debugIP` string.
-#define ENTER_DEBUG_MODE 1
+#define ENTER_DEBUG_MODE 0
 
 typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     CurrentMainWindowCamera,
@@ -79,6 +79,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 @property (strong, nonatomic) DJIGSButtonController *gsButtonVC;
 @property (strong, nonatomic) DJIWaypointConfigViewController *waypointConfigVC;
 @property (strong, nonatomic) DJIMutableWaypointMission *waypointMission;
+@property (strong, nonatomic) MAAnnotationView *userLocationAnnotationView;
 
 @end
 
@@ -90,8 +91,8 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     [super viewDidLoad];
     
     [self initData];
-    [self initPlaybackMultiSelectVC];
     [self initEventHandler];
+    [self initPlaybackMultiSelectVC];
     [self initMapViewAndUI];
     [[VideoPreviewer instance] setView:self.fpvPreviewView];
     
@@ -107,6 +108,38 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 #pragma mark - rewrite methods
 - (BOOL)prefersStatusBarHidden{
     return YES;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskLandscape;
+}
+
+- (void)updateViewConstraints{
+    //layout gsButtonVC
+    NSUInteger gsButtonVCWidth = 100;
+    NSUInteger gsButtonVCHeight = 254;
+    [self.gsButtonVC.view makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.statusBarView.bottom);
+        make.right.equalTo(self.view.right);
+        make.width.equalTo(@(gsButtonVCWidth));
+        make.height.equalTo(@(gsButtonVCHeight));
+    }];
+    
+    //layout waypointConfigVCWidth
+    NSUInteger waypointConfigVCWidth = 400;
+    NSUInteger waypointConfigVCHeight = 293;
+    [self.waypointConfigVC.view makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(waypointConfigVCWidth, waypointConfigVCHeight));
+        
+    }];
+    
+    //init current small window size
+    CGFloat widthRatio = (CGFloat)160 / 667;
+    CGFloat heightRatio = (CGFloat)100 / 375;
+    self.currentSmallWinSize = CGSizeMake(KScreen_Width * widthRatio, KScreen_Height * heightRatio);
+    
+    [super updateViewConstraints];
 }
 
 #pragma mark - Custom Methods
@@ -237,7 +270,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 
 - (void)connectToProduct{
     if (ENTER_DEBUG_MODE) {
-        NSString *debugIP = @"10.0.1.108";
+        NSString *debugIP = @"10.0.1.177";
         DMLog(@"Connecting to Product using debug IP address:%@",debugIP);
         [DJISDKManager enableBridgeModeWithBridgeAppIP:debugIP];
     }else{
@@ -265,11 +298,6 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     
     //init current main window camera
     self.currentMainWindow = CurrentMainWindowCamera;
-    
-    //init current small window size
-    CGFloat widthRatio = (CGFloat)160 / 667;
-    CGFloat heightRatio = (CGFloat)100 / 375;
-    self.currentSmallWinSize = CGSizeMake(KScreen_Width * widthRatio, KScreen_Height * heightRatio);
     
     //init a checklist controller
     self.checklistController = [DULPreflightChecklistController preflightChecklistController];
@@ -442,6 +470,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     self.playbackMultiSelectVC.view.hidden = YES;
 }
 
+
 - (void)initMapViewAndUI{
     
     [AMapServices sharedServices].enableHTTPS = YES;
@@ -459,30 +488,23 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     self.mapView.showsUserLocation = YES;
     self.mapView.userTrackingMode = MAUserTrackingModeFollow;
     
+    
+    
     //change map logo center
     self.originalMapLogoCenterX = self.mapView.logoCenter.x;
 //    self.mapView.logoCenter = CGPointMake(self.mapView.bounds.size.width - self.originalMapLogoCenterX, self.mapView.logoCenter.y);
     
     self.gsButtonVC = [[DJIGSButtonController alloc] initWithNibName:@"DJIGSButtonController" bundle:[NSBundle mainBundle]];
     self.gsButtonVC.view.alpha = 0;
-    [self.gsButtonVC.view setFrame:CGRectMake(KScreen_Width - CGRectGetWidth(self.gsButtonVC.view.frame), CGRectGetMaxY(self.statusBarView.frame), CGRectGetWidth(self.gsButtonVC.view.frame), CGRectGetHeight(self.gsButtonVC.view.frame))];
     self.gsButtonVC.delegate = self;
     [self.view addSubview:self.gsButtonVC.view];
     
     self.waypointConfigVC = [[DJIWaypointConfigViewController alloc] initWithNibName:@"DJIWaypointConfigViewController" bundle:[NSBundle mainBundle]];
     self.waypointConfigVC.view.alpha = 0;
     
-    self.waypointConfigVC.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
-    
-    CGFloat configVCOriginX = (CGRectGetWidth(self.view.frame) - CGRectGetWidth(self.waypointConfigVC.view.frame))/2;
-    CGFloat configVCOriginY = CGRectGetHeight(self.statusBarView.frame) + CGRectGetMinY(self.statusBarView.frame) + 8;
-    
-    [self.waypointConfigVC.view setFrame:CGRectMake(configVCOriginX, configVCOriginY, CGRectGetWidth(self.waypointConfigVC.view.frame), CGRectGetHeight(self.waypointConfigVC.view.frame))];
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        self.waypointConfigVC.view.center = self.view.center;
-    }
     self.waypointConfigVC.delegate = self;
     [self.view addSubview:self.waypointConfigVC.view];
+
 }
 
 - (void)switchPlaybackAndCamera:(BOOL)isPlayback{
@@ -495,14 +517,16 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
         self.cameraInfoWidget.hidden = isPlayback;
         self.mapContainerView.hidden = isPlayback;
         self.smallWindowBtn.hidden = isPlayback;
-        self.cameraSettingContainer.hidden = YES;
-        self.exposureSettingContainer.hidden = YES;
         self.playbackMultiSelectVC.view.hidden = !isPlayback;
     }
     
 }
 
 #pragma mark - event handler
+- (IBAction)settingBtnAction:(id)sender {
+    DMLog(@"%f,%f",self.gsButtonVC.view.frame.size.width,self.gsButtonVC.view.frame.size.height);
+}
+
 - (void)focusMap{
     if (CLLocationCoordinate2DIsValid(self.droneLocation)) {
         MACoordinateRegion region = {0};
@@ -603,7 +627,10 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
         if (error) {
             WLAlertController *alertController = [WLAlertController alertWithTitle:@"查看回放失败" message:error.description];
             [self presentViewController:alertController animated:YES completion:nil];
+            return;
         }
+        self.cameraSettingContainer.hidden = YES;
+        self.exposureSettingContainer.hidden = YES;
     }];
 }
 
@@ -809,16 +836,54 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 }
 
 #pragma mark - MAMapViewDelegate
+- (MAOverlayRenderer *)mapView:(MAMapView *)mapView rendererForOverlay:(id<MAOverlay>)overlay{
+    /* 自定义定位精度对应的MACircleView. */
+    if (overlay == mapView.userLocationAccuracyCircle)
+    {
+        MACircleRenderer *accuracyCircleRenderer = [[MACircleRenderer alloc] initWithCircle:overlay];
+        
+        accuracyCircleRenderer.lineWidth    = 2.f;
+        accuracyCircleRenderer.strokeColor  = [UIColor lightGrayColor];
+        accuracyCircleRenderer.fillColor    = [UIColor colorWithRed:1 green:0 blue:0 alpha:.3];
+        
+        return accuracyCircleRenderer;
+    }
+    
+    return nil;
+}
+
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation{
-    if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
+    if ([annotation isKindOfClass:[MAUserLocation class]])
+    {
+        static NSString * const userLocationStyleReuseIndetifier = @"userLocationStyleReuseIndetifier";
+        MAAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:userLocationStyleReuseIndetifier];
+        if (annotationView == nil)
+        {
+            annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation
+                                                             reuseIdentifier:userLocationStyleReuseIndetifier];
+        }
+        annotationView.image = [UIImage imageNamed:@"userPosition"];
+        self.userLocationAnnotationView = annotationView;
+        self.mapController.userLocationAnnotation = annotationView.annotation;
+        return annotationView;
+    }else if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
         MAPinAnnotationView *pinView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin_Annotation"];
         return pinView;
-    }else if([annotation isKindOfClass:[DJIAircraftAnnotation class]]){
-        DJIAircraftAnnotationView *annoView = [[DJIAircraftAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Aircraft_Annotation"];
-        ((DJIAircraftAnnotation *)annotation).annotationView = annoView;
+    }else if([annotation isKindOfClass:[AircraftAnnotation class]]){
+        AircraftAnnotationView *annoView = [[AircraftAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Aircraft_Annotation"];
+        ((AircraftAnnotation *)annotation).annotationView = annoView;
         return annoView;
     }
     return nil;
+}
+
+- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
+    if (!updatingLocation && self.userLocationAnnotationView != nil) {
+        [UIView animateWithDuration:0.1 animations:^{
+            double degree = userLocation.heading.trueHeading - self.mapView.rotationDegree;
+            self.userLocationAnnotationView.transform = CGAffineTransformMakeRotation(degree * M_PI / 180.f);
+        }];
+    }
 }
 
 #pragma mark - DJIFlightControllerDelegate
