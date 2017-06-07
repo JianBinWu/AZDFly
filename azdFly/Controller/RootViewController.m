@@ -98,6 +98,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     
     [DJISDKManager registerAppWithDelegate:self];
     
+    
 }
 
 - (void)didReceiveMemoryWarning {
