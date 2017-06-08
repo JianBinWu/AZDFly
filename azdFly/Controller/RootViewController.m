@@ -889,7 +889,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 
 #pragma mark - DJIFlightControllerDelegate
 - (void)flightController:(DJIFlightController *)fc didUpdateState:(DJIFlightControllerState *)state{
-    self.droneLocation = state.aircraftLocation;
+    self.droneLocation = state.aircraftLocation.coordinate;
     
     [self.mapController updateAircraftLocation:self.droneLocation withMapView:self.mapView];
     double radianYaw = RADIAN(state.attitude.yaw);

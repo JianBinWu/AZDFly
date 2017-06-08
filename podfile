@@ -1,8 +1,8 @@
 # platform :ios, '9.0'
 
 target 'azdFly' do
-  pod 'DJI-SDK-iOS', '~> 4.0.1'
-  pod ‘DJI-UILibrary-iOS’, '~> 4.0.1.1.0.0'
+  pod 'DJI-SDK-iOS'
+  pod ‘DJI-UILibrary-iOS’
   pod 'AMap3DMap'
   pod 'IQKeyboardManager'
   pod 'Masonry'
