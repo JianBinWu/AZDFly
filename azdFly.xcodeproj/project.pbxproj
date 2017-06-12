@@ -17,6 +17,11 @@
 		A30811D71EC1AE56002B9A43 /* AircraftAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A30811D61EC1AE56002B9A43 /* AircraftAnnotationView.m */; };
 		A30811DC1EC1AE61002B9A43 /* AircraftAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A30811D91EC1AE61002B9A43 /* AircraftAnnotation.m */; };
 		A30811DD1EC1AE61002B9A43 /* DJIMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30811DB1EC1AE61002B9A43 /* DJIMapController.m */; };
+		A327DCC41EEE656F00682066 /* UIImagePickerController+LandScapeImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A327DCC31EEE656F00682066 /* UIImagePickerController+LandScapeImagePicker.m */; };
+		A327DCC81EEE67B500682066 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A327DCC61EEE67B500682066 /* ImageViewController.m */; };
+		A327DCC91EEE67B500682066 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A327DCC71EEE67B500682066 /* ImageViewController.xib */; };
+		A327DCCC1EEE688400682066 /* ImageViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A327DCCB1EEE688400682066 /* ImageViewLayer.m */; };
+		A327DCCF1EEE688F00682066 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = A327DCCE1EEE688F00682066 /* Line.m */; };
 		A3407DD21EB9DA890092B6AB /* UIView+Z_Order.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DD11EB9DA890092B6AB /* UIView+Z_Order.m */; };
 		A3407DDD1EBC6E1B0092B6AB /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DDC1EBC6E1B0092B6AB /* Const.m */; };
 		A3407DE11EBC6FCC0092B6AB /* AppSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DE01EBC6FCC0092B6AB /* AppSingleton.m */; };
@@ -97,6 +102,15 @@
 		A30811D91EC1AE61002B9A43 /* AircraftAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AircraftAnnotation.m; sourceTree = "<group>"; };
 		A30811DA1EC1AE61002B9A43 /* DJIMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJIMapController.h; sourceTree = "<group>"; };
 		A30811DB1EC1AE61002B9A43 /* DJIMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJIMapController.m; sourceTree = "<group>"; };
+		A327DCC21EEE656F00682066 /* UIImagePickerController+LandScapeImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+LandScapeImagePicker.h"; sourceTree = "<group>"; };
+		A327DCC31EEE656F00682066 /* UIImagePickerController+LandScapeImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+LandScapeImagePicker.m"; sourceTree = "<group>"; };
+		A327DCC51EEE67B500682066 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		A327DCC61EEE67B500682066 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		A327DCC71EEE67B500682066 /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
+		A327DCCA1EEE688400682066 /* ImageViewLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewLayer.h; sourceTree = "<group>"; };
+		A327DCCB1EEE688400682066 /* ImageViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewLayer.m; sourceTree = "<group>"; };
+		A327DCCD1EEE688F00682066 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		A327DCCE1EEE688F00682066 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		A3407DD01EB9DA890092B6AB /* UIView+Z_Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Z_Order.h"; sourceTree = "<group>"; };
 		A3407DD11EB9DA890092B6AB /* UIView+Z_Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Z_Order.m"; sourceTree = "<group>"; };
 		A3407DDB1EBC6E1B0092B6AB /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
@@ -262,6 +276,9 @@
 				A30811CE1EC1ADBA002B9A43 /* DJIWaypointConfigViewController.h */,
 				A30811CF1EC1ADBA002B9A43 /* DJIWaypointConfigViewController.m */,
 				A30811D01EC1ADBA002B9A43 /* DJIWaypointConfigViewController.xib */,
+				A327DCC51EEE67B500682066 /* ImageViewController.h */,
+				A327DCC61EEE67B500682066 /* ImageViewController.m */,
+				A327DCC71EEE67B500682066 /* ImageViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -271,6 +288,8 @@
 			children = (
 				A30811D51EC1AE56002B9A43 /* AircraftAnnotationView.h */,
 				A30811D61EC1AE56002B9A43 /* AircraftAnnotationView.m */,
+				A327DCCA1EEE688400682066 /* ImageViewLayer.h */,
+				A327DCCB1EEE688400682066 /* ImageViewLayer.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,6 +301,8 @@
 				A30811D91EC1AE61002B9A43 /* AircraftAnnotation.m */,
 				A30811DA1EC1AE61002B9A43 /* DJIMapController.h */,
 				A30811DB1EC1AE61002B9A43 /* DJIMapController.m */,
+				A327DCCD1EEE688F00682066 /* Line.h */,
+				A327DCCE1EEE688F00682066 /* Line.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +358,8 @@
 			children = (
 				A3407DD01EB9DA890092B6AB /* UIView+Z_Order.h */,
 				A3407DD11EB9DA890092B6AB /* UIView+Z_Order.m */,
+				A327DCC21EEE656F00682066 /* UIImagePickerController+LandScapeImagePicker.h */,
+				A327DCC31EEE656F00682066 /* UIImagePickerController+LandScapeImagePicker.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -484,6 +507,7 @@
 				A30811C01EC05838002B9A43 /* DJIPlaybackMultiSelectViewController.xib in Resources */,
 				A360A4BC1EB3355200B043B5 /* Assets.xcassets in Resources */,
 				A30811D41EC1ADBA002B9A43 /* DJIWaypointConfigViewController.xib in Resources */,
+				A327DCC91EEE67B500682066 /* ImageViewController.xib in Resources */,
 				A360A4BA1EB3355200B043B5 /* Main.storyboard in Resources */,
 				A30811D21EC1ADBA002B9A43 /* DJIGSButtonController.xib in Resources */,
 			);
@@ -558,16 +582,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A327DCC81EEE67B500682066 /* ImageViewController.m in Sources */,
 				A30811DC1EC1AE61002B9A43 /* AircraftAnnotation.m in Sources */,
 				A360A4B41EB3355200B043B5 /* AppDelegate.m in Sources */,
 				A30811BF1EC05838002B9A43 /* DJIPlaybackMultiSelectViewController.m in Sources */,
 				A3407DD21EB9DA890092B6AB /* UIView+Z_Order.m in Sources */,
 				A398FD4C1EB8B2DD000FCD1A /* WLAlertController.m in Sources */,
+				A327DCCC1EEE688400682066 /* ImageViewLayer.m in Sources */,
 				A30811D11EC1ADBA002B9A43 /* DJIGSButtonController.m in Sources */,
 				A3407DDD1EBC6E1B0092B6AB /* Const.m in Sources */,
 				A30811D71EC1AE56002B9A43 /* AircraftAnnotationView.m in Sources */,
 				A360A4B11EB3355200B043B5 /* main.m in Sources */,
+				A327DCC41EEE656F00682066 /* UIImagePickerController+LandScapeImagePicker.m in Sources */,
 				A3407DE11EBC6FCC0092B6AB /* AppSingleton.m in Sources */,
+				A327DCCF1EEE688F00682066 /* Line.m in Sources */,
 				A30811DD1EC1AE61002B9A43 /* DJIMapController.m in Sources */,
 				A30811D31EC1ADBA002B9A43 /* DJIWaypointConfigViewController.m in Sources */,
 				A398FD3E1EB865AC000FCD1A /* RootViewController.m in Sources */,

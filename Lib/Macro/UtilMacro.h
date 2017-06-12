@@ -28,4 +28,6 @@
 #define DEGREE(x) ((x)*180.0/M_PI)
 #define RADIAN(x) ((x)*M_PI/180.0)
 
+#define Pythagorean(xLength,yLength) sqrt(xLength*xLength + yLength*yLength)
+
 #endif /* UtilMacro_h */

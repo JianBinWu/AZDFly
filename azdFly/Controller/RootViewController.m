@@ -13,6 +13,7 @@
 #import "DJIMapController.h"
 #import "DJIGSButtonController.h"
 #import "DJIWaypointConfigViewController.h"
+#import "ImageViewController.h"
 
 
 //To use DJI Bridge app, change `ENTER_DEBUG_MODE` to 1 and add bridge app IP address in `debugIP` string.
@@ -23,7 +24,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     CurrentMainWindowMap
 };
 
-@interface RootViewController ()<DJISDKManagerDelegate,DJICameraDelegate,DJIBaseProductDelegate,DJIVideoFeedListener,DJIPlaybackDelegate,DJIPlaybackDelegate,DJIFlightControllerDelegate,DJIGSButtonControllerDelegate,DJIWaypointConfigViewControllerDelegate,MAMapViewDelegate>
+@interface RootViewController ()<DJISDKManagerDelegate,DJICameraDelegate,DJIBaseProductDelegate,DJIVideoFeedListener,DJIPlaybackDelegate,DJIPlaybackDelegate,DJIFlightControllerDelegate,DJIGSButtonControllerDelegate,DJIWaypointConfigViewControllerDelegate,MAMapViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *fpvPreviewView;
 @property (weak, nonatomic) IBOutlet UIView *mapContainerView;
@@ -525,7 +526,11 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 
 #pragma mark - event handler
 - (IBAction)settingBtnAction:(id)sender {
-    DMLog(@"%f,%f",self.gsButtonVC.view.frame.size.width,self.gsButtonVC.view.frame.size.height);
+    //call system album
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+    pickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    pickerController.delegate = self;
+    [self presentViewController:pickerController animated:YES completion:nil];
 }
 
 - (void)focusMap{
@@ -894,6 +899,14 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     [self.mapController updateAircraftLocation:self.droneLocation withMapView:self.mapView];
     double radianYaw = RADIAN(state.attitude.yaw);
     [self.mapController updateAircraftHeading:radianYaw];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info{
+    UIImage *resultImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    ImageViewController *imageVC = [[ImageViewController alloc] initWithNibName:@"ImageViewController" bundle:[NSBundle mainBundle]];
+    [imageVC initImage:resultImage];
+    [picker pushViewController:imageVC animated:YES];
 }
 
 /*
