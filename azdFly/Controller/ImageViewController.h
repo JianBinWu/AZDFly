@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageViewController : UIViewController
-    
+
+@property (strong, nonatomic) PHAsset *asset;
+
 - (void)initImage:(UIImage *)image;
     
 @end

@@ -7,6 +7,8 @@
 //
 
 #import <MAMapKit/MAConfig.h>
+#import <MAMapKit/MAMapAccessibilityIdentifier.h>
+
 #import <MAMapKit/MAMapVersion.h>
 #import <MAMapKit/MAMapView.h>
 #import <MAMapKit/MAMapStatus.h>

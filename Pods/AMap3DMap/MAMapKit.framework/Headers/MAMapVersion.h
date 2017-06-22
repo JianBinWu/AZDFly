@@ -12,7 +12,7 @@
 #ifndef MAMapVersion_h
 #define MAMapVersion_h
 
-#define MAMapVersionNumber                50100
+#define MAMapVersionNumber                50200
 
 #define MAMapMinRequiredFoundationVersion 10301
 

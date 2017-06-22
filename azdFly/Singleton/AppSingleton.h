@@ -10,8 +10,8 @@
 
 @interface AppSingleton : NSObject
 
-@property (assign, nonatomic) CGFloat widthRatio;
-@property (assign, nonatomic) CGFloat heightRatio;
+@property (assign, nonatomic) CGFloat widthRatio;     //current screen's width / iphone6's screen's width
+@property (assign, nonatomic) CGFloat heightRatio;    //current screen's height / iphone6's screen's height
 
 + (instancetype)sharedInstance;
 

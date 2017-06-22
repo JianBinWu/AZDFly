@@ -8,6 +8,8 @@
 
 #import "Const.h"
 
+NSString * const droneLocationDicKey = @"locationDic";
+NSString * const locationDicPath = @"locationDicPath";
 @implementation Const
 
 @end

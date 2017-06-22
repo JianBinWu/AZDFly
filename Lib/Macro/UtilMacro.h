@@ -30,4 +30,11 @@
 
 #define Pythagorean(xLength,yLength) sqrt(xLength*xLength + yLength*yLength)
 
+//get temp
+#define kPathTemp NSTemporaryDirectory()
+//get Document
+#define kPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+//get Cache
+#define kPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
 #endif /* UtilMacro_h */

@@ -678,6 +678,12 @@ extern NSString * const kMAMapLayerCameraDegreeKey;
  */
 - (void)setCustomMapStyle:(NSData*)customJson;
 
+/**
+ * @brief 根据web导出数据设置地图样式, 目前仅支持自定义标准类型. 默认不生效，调用mapCustomEnable=YES使生效. since 5.2.0
+ * @param data 高德web端工具导出的地图样式数据.
+ */
+- (void)setCustomMapStyleWithWebData:(NSData*)data;
+
 @end
 
 #pragma mark - MAMapViewDelegate

@@ -26,26 +26,13 @@
     self.imageView.image = self.image;
     
     self.layer = [ImageViewLayer layer];
+    [self initShootedHeight:self.asset.location.altitude];
 
     self.layer.frame = CGRectMake(0, 0, KScreen_Width, KScreen_Height);
     [self.view.layer addSublayer:self.layer];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     [self.view addGestureRecognizer:tap];
-    
-    //init alertController with textfield to input shooted height
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请输入拍摄照片时的相机高度" message:@"单位：米"
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.keyboardType = UIKeyboardTypeDecimalPad;
-    }];
-    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"完成" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        UITextField *textField = alertController.textFields[0];
-        self.layer.shootedHeight = [textField.text floatValue] * 100;
-    }];
-    [alertController addAction:alertAction];
-    [self presentViewController:alertController animated:YES completion:nil];
-    
     
 }
 
@@ -70,6 +57,10 @@
 - (void)initImage:(UIImage *)image{
     self.image = image;
     
+}
+
+- (void)initShootedHeight:(CGFloat)altitude{
+    self.layer.shootedHeight = altitude * 100;
 }
 
 #pragma mark - event handler
@@ -97,6 +88,36 @@
     }
     [self.layer setNeedsDisplay];
     
+}
+
+- (IBAction)changeAltitude:(id)sender {
+    //init alertController with textfield to input shooted height
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请输入拍摄照片时的相机高度" message:@"单位：米"
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.keyboardType = UIKeyboardTypeDecimalPad;
+    }];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"完成" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *textField = alertController.textFields[0];
+        CGFloat shootedHeight = [textField.text doubleValue];
+        CLLocation *location = self.asset.location;
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            PHAssetChangeRequest *assetChangeRequest = [PHAssetChangeRequest changeRequestForAsset:self.asset];
+            assetChangeRequest.location = [[CLLocation alloc] initWithCoordinate:location.coordinate altitude:shootedHeight horizontalAccuracy:location.horizontalAccuracy verticalAccuracy:location.verticalAccuracy timestamp:location.timestamp];
+        } completionHandler:^(BOOL success, NSError * _Nullable error) {
+            if (!error) {
+                self.layer.shootedHeight = shootedHeight * 100;
+                WLAlertController *alertController = [WLAlertController alertWithTitle:@"修改高度成功" message:nil];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }else{
+                WLAlertController *alertController = [WLAlertController alertWithTitle:@"修改高度失败" message:error.description];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+        }];
+        
+    }];
+    [alertController addAction:alertAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 /*

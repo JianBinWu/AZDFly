@@ -25,6 +25,9 @@ typedef void(^MAFinishCallback)(NSArray<MATracePoint *> *points, double distance
 ///失败回调
 typedef void(^MAFailedCallback)(int errorCode, NSString *errorDesc);
 
+///定位回调, locations: 原始定位点; tracePoints: 纠偏后的点，如果纠偏失败返回nil; distance:距离; error: 纠偏失败时的错误信息
+typedef void(^MATraceLocationCallback)(NSArray<CLLocation *> *locations, NSArray<MATracePoint *> *tracePoints, double distance, NSError *error);
+
 
 ///轨迹纠偏管理类
 @interface MATraceManager : NSObject
@@ -48,6 +51,17 @@ typedef void(^MAFailedCallback)(int errorCode, NSString *errorDesc);
                       processingCallback:(MAProcessingCallback)processingCallback
                           finishCallback:(MAFinishCallback)finishCallback
                           failedCallback:(MAFailedCallback)failedCallback;
+
+/**
+ * @brief 开始轨迹定位, 内部使用系统CLLocationManager，distanceFilter，desiredAccuracy均为系统默认值
+ * @param locCallback 定位回调, 回调中返回坐标类型为AMapCoordinateTypeGPS
+ */
+- (void)startTraceWith:(MATraceLocationCallback)locCallback;
+
+/**
+ * @brief 停止轨迹定位
+ */
+- (void)stopTrace;
 
 @end
 

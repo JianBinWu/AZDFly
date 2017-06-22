@@ -348,6 +348,7 @@
                         <outlet property="cameraSettingContainer" destination="Wt5-od-U7T" id="0pD-QW-va0"/>
                         <outlet property="cameraSettingsMenu" destination="EGf-c2-pXW" id="vyC-wf-6gZ"/>
                         <outlet property="cameraStorageWidget" destination="pPV-FA-q0D" id="ny1-5s-0u2"/>
+                        <outlet property="captureWidget" destination="beF-cS-1fc" id="RNE-w7-hZ0"/>
                         <outlet property="exposureSettingContainer" destination="XtU-Bt-Bt4" id="uz7-SX-ONn"/>
                         <outlet property="exposureSettingMenu" destination="wgK-Ra-Ahl" id="lRt-uc-j1z"/>
                         <outlet property="fpvPreviewView" destination="7WA-cU-bAg" id="ksP-l3-a1k"/>

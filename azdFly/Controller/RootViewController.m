@@ -17,7 +17,7 @@
 
 
 //To use DJI Bridge app, change `ENTER_DEBUG_MODE` to 1 and add bridge app IP address in `debugIP` string.
-#define ENTER_DEBUG_MODE 0
+#define ENTER_DEBUG_MODE 1
 
 typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     CurrentMainWindowCamera,
@@ -26,21 +26,22 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 
 @interface RootViewController ()<DJISDKManagerDelegate,DJICameraDelegate,DJIBaseProductDelegate,DJIVideoFeedListener,DJIPlaybackDelegate,DJIPlaybackDelegate,DJIFlightControllerDelegate,DJIGSButtonControllerDelegate,DJIWaypointConfigViewControllerDelegate,MAMapViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *fpvPreviewView;
-@property (weak, nonatomic) IBOutlet UIView *mapContainerView;
-@property (weak, nonatomic) IBOutlet DULExposureSettingsMenu *exposureSettingMenu;
-@property (weak, nonatomic) IBOutlet DULCameraSettingsMenu *cameraSettingsMenu;
-@property (weak, nonatomic) IBOutlet UIView *cameraSettingContainer;
-@property (weak, nonatomic) IBOutlet UIView *exposureSettingContainer;
-@property (weak, nonatomic) IBOutlet DULCameraConfigInfoWidget *cameraInfoWidget;
-@property (weak, nonatomic) IBOutlet DULCameraConfigStorageWidget *cameraStorageWidget;
+@property (weak, nonatomic) IBOutlet UIView *fpvPreviewView;       //a view that as a fpvPreview
+@property (weak, nonatomic) IBOutlet UIView *mapContainerView;     //a view that contain mapview
+@property (weak, nonatomic) IBOutlet DULExposureSettingsMenu *exposureSettingMenu;   //exporsureSettingMenu in DJI UI SDK
+@property (weak, nonatomic) IBOutlet DULCameraSettingsMenu *cameraSettingsMenu;      //cameraSettingsMenu in DJI UI SDK
+@property (weak, nonatomic) IBOutlet UIView *cameraSettingContainer;      //a view that contain cameraSettingMenu
+@property (weak, nonatomic) IBOutlet UIView *exposureSettingContainer;    //a view that contain exposureSettingMenu
+@property (weak, nonatomic) IBOutlet DULCameraConfigInfoWidget *cameraInfoWidget;        //cameraConfigInfoWidget in DJI UI SDK
+@property (weak, nonatomic) IBOutlet DULCameraConfigStorageWidget *cameraStorageWidget;  //cameraConfigStorageWidget in DJI UI SDK
 @property (weak, nonatomic) IBOutlet DULPreFlightStatusWidget *preFlightStatusWidget;
-@property (weak, nonatomic) IBOutlet UIView *statusBarView;
-@property (weak, nonatomic) IBOutlet UIView *leftSideBarView;
-@property (weak, nonatomic) IBOutlet UIView *bottomBarView;
-@property (weak, nonatomic) IBOutlet UIView *rightSideBarView;
-@property (weak, nonatomic) IBOutlet UIButton *smallWindowBtn;
-@property (weak, nonatomic) IBOutlet UIButton *playVideoBtn;
+@property (weak, nonatomic) IBOutlet UIView *statusBarView;        //a view that contains status widget in DJI UI SDK
+@property (weak, nonatomic) IBOutlet UIView *leftSideBarView;      //a view contain auto take off and auto landing
+@property (weak, nonatomic) IBOutlet UIView *bottomBarView;        //a view contain dashboard
+@property (weak, nonatomic) IBOutlet UIView *rightSideBarView;     //a view contain camera setting,switch,captureWidget,exporsure setting,playback
+@property (weak, nonatomic) IBOutlet UIButton *smallWindowBtn;     //btn for switching fpvPreview and mapView
+@property (weak, nonatomic) IBOutlet UIButton *playVideoBtn;       //btn for playing video in playback state
+@property (weak, nonatomic) IBOutlet DULCaptureWidget *captureWidget;
 
 
 
@@ -50,25 +51,26 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapViewContainerWidthConstraint;
 
 
-@property (assign, nonatomic) CurrentMainWindow currentMainWindow;
-@property (strong, nonatomic) NSMutableData *downloadedImageData;
-@property (strong, nonatomic) NSMutableArray *downloadedImageArray;
-@property (assign, nonatomic) CGSize currentSmallWinSize;
+@property (assign, nonatomic) CurrentMainWindow currentMainWindow;   //mark currentMainWindow: CurrentMainWindowCamera or CurrentMainWindowMap
+@property (strong, nonatomic) NSMutableData *downloadedImageData;    //store downloadedImageData
+@property (strong, nonatomic) NSMutableArray *downloadedImageArray;  //store images which are already downloaded
+@property (strong, nonatomic) NSMutableArray *downloadedImageLocationArray;  //store images' location
+@property (assign, nonatomic) CGSize currentSmallWinSize;          //store small window's size
 @property (assign, nonatomic) CGFloat originalMapLogoCenterX;
 @property (strong, nonatomic) DJICameraPlaybackState *cameraPlaybackState;
 @property (strong, nonatomic) DJICameraSystemState *cameraSystemState;
 @property (assign, nonatomic) int selectedFileCount;
-@property (strong, nonatomic) NSError *downloadImageError;
-@property (strong, nonatomic) NSString *targetFileName;
-@property (assign, nonatomic) DJIDownloadFileType fileType;
+@property (strong, nonatomic) NSError *downloadImageError;    //image error when download
+@property (strong, nonatomic) NSString *targetFileName;       //file name when download
+@property (assign, nonatomic) DJIDownloadFileType fileType;   //fileType when download
 @property (assign, nonatomic) long totalFileSize;
 @property (assign, nonatomic) long currentDownloadSize;
 @property (assign, nonatomic) int downloadedFileCount;
-@property (strong, nonatomic) NSTimer *updateImageDownloadTimer;
+@property (strong, nonatomic) NSTimer *updateImageDownloadTimer;  //timer for update state when download image
 
 @property (strong, nonatomic) DULPreflightChecklistController *checklistController;
 @property (strong, nonatomic) DJIPlaybackMultiSelectViewController *playbackMultiSelectVC;
-@property (strong, nonatomic) UIAlertController *downloadAlertController;
+@property (strong, nonatomic) UIAlertController *downloadAlertController;   //alert controller show download state
 
 //map property
 @property (strong, nonatomic) MAMapView *mapView;
@@ -76,11 +78,14 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 @property (strong, nonatomic) UITapGestureRecognizer *tapGesture;
 @property (assign, nonatomic) BOOL isEditingPoints;
 @property (assign, nonatomic) CLLocationCoordinate2D userLocation;
-@property (assign, nonatomic) CLLocationCoordinate2D droneLocation;
-@property (strong, nonatomic) DJIGSButtonController *gsButtonVC;
-@property (strong, nonatomic) DJIWaypointConfigViewController *waypointConfigVC;
+@property (assign, nonatomic) CLLocation *droneLocation;
+@property (assign, nonatomic) double droneAltitude;                          //drone's altitude relative to take off location
+@property (strong, nonatomic) CLLocation *droneLocationWhenShooting;              //drone's location when shooting picture
+@property (strong, nonatomic) NSMutableDictionary *locationDic;              //store image's name with altitude
+@property (strong, nonatomic) DJIGSButtonController *gsButtonVC;             //a controller contain buttons for way point
+@property (strong, nonatomic) DJIWaypointConfigViewController *waypointConfigVC;  //a waypoint config controller
 @property (strong, nonatomic) DJIMutableWaypointMission *waypointMission;
-@property (strong, nonatomic) MAAnnotationView *userLocationAnnotationView;
+@property (strong, nonatomic) MAAnnotationView *userLocationAnnotationView;       //annotationView for userLocation
 
 @end
 
@@ -90,16 +95,13 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self initData];
     [self initEventHandler];
     [self initPlaybackMultiSelectVC];
     [self initMapViewAndUI];
     [[VideoPreviewer instance] setView:self.fpvPreviewView];
-    
     [DJISDKManager registerAppWithDelegate:self];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,6 +118,9 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     return UIInterfaceOrientationMaskLandscape;
 }
 
+/**
+ update gsButtonVC waypointConfigVC smallWindows' constraints
+ */
 - (void)updateViewConstraints{
     //layout gsButtonVC
     NSUInteger gsButtonVCWidth = 100;
@@ -127,7 +132,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
         make.height.equalTo(@(gsButtonVCHeight));
     }];
     
-    //layout waypointConfigVCWidth
+    //layout waypointConfigVC
     NSUInteger waypointConfigVCWidth = 400;
     NSUInteger waypointConfigVCHeight = 293;
     [self.waypointConfigVC.view makeConstraints:^(MASConstraintMaker *make) {
@@ -145,158 +150,16 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 }
 
 #pragma mark - Custom Methods
-- (DJIFlightController *)fetchFlightController{
-    if (![DJISDKManager product]) {
-        return nil;
-    }
-    
-    if ([[DJISDKManager product] isKindOfClass:[DJIAircraft class]]) {
-        return ((DJIAircraft *)[DJISDKManager product]).flightController;
-    }
-    
-    return nil;
-}
 
-- (DJIWaypointMissionOperator *)missionOperator{
-    return [DJISDKManager missionControl].waypointMissionOperator;
-}
-
-- (void)saveDownloadImage{
-    if (self.downloadedImageArray && self.downloadedImageArray.count > 0) {
-        UIImage *image = [self.downloadedImageArray lastObject];
-        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-    }else{
-        [self.downloadAlertController dismissViewControllerAnimated:YES completion:nil];
-    }
-}
-
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
-    if (error != NULL) {
-        [self.downloadAlertController dismissViewControllerAnimated:YES completion:nil];
-        WLAlertController *alertController = [WLAlertController alertWithTitle:@"存储图片失败" message:error.description];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }else{
-        [self.downloadedImageArray removeLastObject];
-        if (self.downloadedImageArray) {
-            [self saveDownloadImage];
-            
-            if (self.downloadedImageArray.count == 0) {
-                WLAlertController *alertController = [WLAlertController alertWithTitle:@"照片已存储到相册" message:@""];
-                [self presentViewController:alertController animated:YES completion:nil];
-            }
-        }
-    }
-}
-
-- (void)startUpdateTimer{
-    if (self.updateImageDownloadTimer == nil) {
-        self.updateImageDownloadTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDownloadProgress:) userInfo:nil repeats:YES];
-    }
-}
-
-- (void)stopTimer{
-    if (self.updateImageDownloadTimer != nil) {
-        [self.updateImageDownloadTimer invalidate];
-        self.updateImageDownloadTimer = nil;
-    }
-}
-
-- (void)downloadFiles{
-    [self resetDownloadData];
-    
-    if (self.cameraPlaybackState.playbackMode == DJICameraPlaybackModeSingleFilePreview) {
-        self.selectedFileCount = 1;
-    }
-    WeakRef(target);
-    __weak DJICamera *camera = [self fetchCamera];
-    self.downloadAlertController = [UIAlertController alertControllerWithTitle:@"Waiting for download" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    [self presentViewController:target.downloadAlertController animated:YES completion:nil];
-    [camera.playbackManager downloadSelectedFilesWithPreparation:^(NSString * _Nullable fileName, DJIDownloadFileType fileType, NSUInteger fileSize, BOOL * _Nonnull skip) {
-        WeakRef(target);
-        [target startUpdateTimer];
-        target.totalFileSize = (long)fileSize;
-        target.targetFileName = fileName;
-        target.fileType = fileType;
-        NSString *title = [NSString stringWithFormat:@"下载(%d/%d)",target.downloadedFileCount + 1, target.selectedFileCount];
-        NSString *message = [NSString stringWithFormat:@"文件名:%@, 文件大小:%0.1fKB, 已下载:0.0KB",fileName,target.totalFileSize / 1024.0];
-        target.downloadAlertController.title = title;
-        target.downloadAlertController.message = message;
-        
-    } process:^(NSData * _Nullable data, NSError * _Nullable error) {
-        WeakReturn(target);
-        if (data) {
-            [target.downloadedImageData appendData:data];
-            target.currentDownloadSize += data.length;
-        }
-        target.downloadImageError = error;
-    } fileCompletion:^{
-        WeakReturn(target);
-        target.downloadedFileCount++;
-        if (target.fileType == DJIDownloadFileTypePhoto || target.fileType == DJIDownloadFileTypeRAWDNG) {
-            UIImage *downloadImage = [[UIImage alloc] initWithData:target.downloadedImageData];
-            if (downloadImage) {
-                [target.downloadedImageArray addObject:downloadImage];
-            }
-        }
-        
-        [target.downloadedImageData setData:[NSData dataWithBytes:NULL length:0]];
-        target.currentDownloadSize = 0.0f;
-        
-        NSString *title = [NSString stringWithFormat:@"下载(%d/%d)",target.downloadedFileCount, target.selectedFileCount];
-        target.downloadAlertController.title = title;
-        target.downloadAlertController.message = @"已完成";
-        
-        if (target.downloadedFileCount == target.selectedFileCount) {
-            [target stopTimer];
-            [target.playbackMultiSelectVC changeSelectedState:NO];
-            target.downloadAlertController.title = @"存储照片到相册中...";
-            target.downloadAlertController.message = @"";
-            [target saveDownloadImage];
-        }
-        
-    } overallCompletion:^(NSError * _Nullable error) {
-        DMLog(@"DownloadFile Error %@",error.description);
-    }];
-    
-}
-
-- (void)resetDownloadData{
-    self.downloadImageError = nil;
-    self.totalFileSize = 0;
-    self.currentDownloadSize = 0;
-    self.downloadedFileCount = 0;
-    
-    [self.downloadedImageData setData:[NSData dataWithBytes:NULL length:0]];
-    [self.downloadedImageArray removeAllObjects];
-}
-
-- (void)connectToProduct{
-    if (ENTER_DEBUG_MODE) {
-        NSString *debugIP = @"10.0.1.177";
-        DMLog(@"Connecting to Product using debug IP address:%@",debugIP);
-        [DJISDKManager enableBridgeModeWithBridgeAppIP:debugIP];
-    }else{
-        DMLog(@"Connecting to product...");
-        [DJISDKManager startConnectionToProduct];
-    }
-}
-
-- (DJICamera *)fetchCamera{
-    if (![DJISDKManager product]) {
-        return nil;
-    }
-    
-    if ([[DJISDKManager product] isKindOfClass:[DJIAircraft class]]) {
-        return ((DJIAircraft *)[DJISDKManager product]).camera;
-    }
-    
-    return nil;
-    
-}
-
+/**
+ init data for download image,current main window,checklist,map
+ */
 - (void)initData{
+    //init data for download image
     self.downloadedImageData = [NSMutableData data];
     self.downloadedImageArray = [NSMutableArray array];
+    self.downloadedImageLocationArray = [NSMutableArray array];
+    self.locationDic = [self locationDicFromArchiver];
     
     //init current main window camera
     self.currentMainWindow = CurrentMainWindowCamera;
@@ -306,11 +169,13 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     
     //init map data
     self.userLocation = kCLLocationCoordinate2DInvalid;
-    self.droneLocation = kCLLocationCoordinate2DInvalid;
-    
     self.mapController = [[DJIMapController alloc] init];
+    
 }
 
+/**
+ init event handler for cameraSettingMenu,exposureSettingMenu,tap gesture for preflight status widget,captureWidget
+ */
 - (void)initEventHandler{
     //implement camera and exposure setting menu's action block
     self.cameraSettingsMenu.action = ^(){
@@ -324,11 +189,22 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
         self.cameraSettingContainer.hidden = YES;
     };
     
+    //record drone's altitude when shooting
+    self.captureWidget.action = ^{
+        if(self.captureWidget.mode == DJICameraModeShootPhoto){
+            self.droneLocationWhenShooting = [[CLLocation alloc] initWithCoordinate:self.droneLocation.coordinate altitude:self.droneAltitude horizontalAccuracy:self.droneLocation.horizontalAccuracy verticalAccuracy:self.droneLocation.verticalAccuracy timestamp:self.droneLocation.timestamp];
+        }
+    };
+    
     //init a tap gesture for preflight status widget
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(preFlightStatusWidgetTapAction:)];
     [self.preFlightStatusWidget addGestureRecognizer:tapGesture];
 }
 
+
+/**
+ init playback VC
+ */
 - (void)initPlaybackMultiSelectVC{
     self.playbackMultiSelectVC = [[DJIPlaybackMultiSelectViewController alloc] initWithNibName:@"DJIPlaybackMultiSelectViewController" bundle:[NSBundle mainBundle]];
     
@@ -472,7 +348,9 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     self.playbackMultiSelectVC.view.hidden = YES;
 }
 
-
+/**
+ init mapview and UI
+ */
 - (void)initMapViewAndUI{
     
     [AMapServices sharedServices].enableHTTPS = YES;
@@ -494,7 +372,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     
     //change map logo center
     self.originalMapLogoCenterX = self.mapView.logoCenter.x;
-//    self.mapView.logoCenter = CGPointMake(self.mapView.bounds.size.width - self.originalMapLogoCenterX, self.mapView.logoCenter.y);
+    //    self.mapView.logoCenter = CGPointMake(self.mapView.bounds.size.width - self.originalMapLogoCenterX, self.mapView.logoCenter.y);
     
     self.gsButtonVC = [[DJIGSButtonController alloc] initWithNibName:@"DJIGSButtonController" bundle:[NSBundle mainBundle]];
     self.gsButtonVC.view.alpha = 0;
@@ -506,9 +384,66 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     
     self.waypointConfigVC.delegate = self;
     [self.view addSubview:self.waypointConfigVC.view];
-
+    
 }
 
+
+/**
+ connect to product
+ */
+- (void)connectToProduct{
+    if (ENTER_DEBUG_MODE) {
+        NSString *debugIP = @"10.0.1.179";
+        DMLog(@"Connecting to Product using debug IP address:%@",debugIP);
+        [DJISDKManager enableBridgeModeWithBridgeAppIP:debugIP];
+    }else{
+        DMLog(@"Connecting to product...");
+        [DJISDKManager startConnectionToProduct];
+    }
+}
+
+
+/**
+ fetch camera
+
+ @return DJICamera
+ */
+- (DJICamera *)fetchCamera{
+    if (![DJISDKManager product]) {
+        return nil;
+    }
+    
+    if ([[DJISDKManager product] isKindOfClass:[DJIAircraft class]]) {
+        return ((DJIAircraft *)[DJISDKManager product]).camera;
+    }
+    
+    return nil;
+    
+}
+
+/**
+ fetch flight controller
+
+ @return DJIFlightController
+ */
+- (DJIFlightController *)fetchFlightController{
+    if (![DJISDKManager product]) {
+        return nil;
+    }
+    
+    if ([[DJISDKManager product] isKindOfClass:[DJIAircraft class]]) {
+        return ((DJIAircraft *)[DJISDKManager product]).flightController;
+    }
+    
+    return nil;
+}
+
+
+/**
+ switch interface between playback and camera
+
+ @param isPlayback BOOL
+ */
 - (void)switchPlaybackAndCamera:(BOOL)isPlayback{
     if (self.currentMainWindow == CurrentMainWindowCamera) {
         self.statusBarView.hidden = isPlayback;
@@ -524,36 +459,149 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     
 }
 
-#pragma mark - event handler
-- (IBAction)settingBtnAction:(id)sender {
-    //call system album
-    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
-    pickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    pickerController.delegate = self;
-    [self presentViewController:pickerController animated:YES completion:nil];
+/**
+ get mission operator
+
+ @return DJIWaypointMissionOperator
+ */
+- (DJIWaypointMissionOperator *)missionOperator{
+    return [DJISDKManager missionControl].waypointMissionOperator;
 }
 
-- (void)focusMap{
-    if (CLLocationCoordinate2DIsValid(self.droneLocation)) {
-        MACoordinateRegion region = {0};
-        region.center = self.droneLocation;
-        region.span.latitudeDelta = 0.001;
-        region.span.longitudeDelta = 0.001;
-        
-        [self.mapView setRegion:region animated:YES];
-    }
-}
+#pragma mark - method for download image
 
-- (void)addWaypoints:(UITapGestureRecognizer *)tapGesture{
-    CGPoint point = [tapGesture locationInView:self.mapView];
+/**
+ download file from sd card
+ */
+- (void)downloadFiles{
+    [self resetDownloadData];
     
-    if (tapGesture.state == UIGestureRecognizerStateEnded) {
-        if (self.isEditingPoints) {
-            [self.mapController addPoint:point withMapView:self.mapView];
+    if (self.cameraPlaybackState.playbackMode == DJICameraPlaybackModeSingleFilePreview) {
+        self.selectedFileCount = 1;
+    }
+    WeakRef(target);
+    __weak DJICamera *camera = [self fetchCamera];
+    self.downloadAlertController = [UIAlertController alertControllerWithTitle:@"Waiting for download" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:target.downloadAlertController animated:YES completion:nil];
+    [camera.playbackManager downloadSelectedFilesWithPreparation:^(NSString * _Nullable fileName, DJIDownloadFileType fileType, NSUInteger fileSize, BOOL * _Nonnull skip) {
+        WeakRef(target);
+        [target startUpdateTimer];
+        target.totalFileSize = (long)fileSize;
+        target.targetFileName = [self processFileName:fileName];
+        target.fileType = fileType;
+        NSString *title = [NSString stringWithFormat:@"下载(%d/%d)",target.downloadedFileCount + 1, target.selectedFileCount];
+        NSString *message = [NSString stringWithFormat:@"文件名:%@, 文件大小:%0.1fKB, 已下载:0.0KB",fileName,target.totalFileSize / 1024.0];
+        target.downloadAlertController.title = title;
+        target.downloadAlertController.message = message;
+        
+    } process:^(NSData * _Nullable data, NSError * _Nullable error) {
+        WeakReturn(target);
+        if (data) {
+            [target.downloadedImageData appendData:data];
+            target.currentDownloadSize += data.length;
         }
+        target.downloadImageError = error;
+    } fileCompletion:^{
+        WeakReturn(target);
+        target.downloadedFileCount++;
+        if (target.fileType == DJIDownloadFileTypePhoto || target.fileType == DJIDownloadFileTypeRAWDNG) {
+            UIImage *downloadImage = [[UIImage alloc] initWithData:target.downloadedImageData];
+            if (downloadImage) {
+                [target.downloadedImageArray addObject:downloadImage];
+                CLLocation *location = [target.locationDic objectForKey:target.targetFileName];
+                if (location) {
+                    [target.downloadedImageLocationArray addObject:location];
+                }else{
+                    [target.downloadedImageLocationArray addObject:[NSNull null]];
+                }
+            }
+        }
+        
+        [target.downloadedImageData setData:[NSData dataWithBytes:NULL length:0]];
+        target.currentDownloadSize = 0.0f;
+        
+        NSString *title = [NSString stringWithFormat:@"下载(%d/%d)",target.downloadedFileCount, target.selectedFileCount];
+        target.downloadAlertController.title = title;
+        target.downloadAlertController.message = @"已完成";
+        
+        if (target.downloadedFileCount == target.selectedFileCount) {
+            [target stopTimer];
+            [target.playbackMultiSelectVC changeSelectedState:NO];
+            target.downloadAlertController.title = @"存储照片到相册中...";
+            target.downloadAlertController.message = @"";
+            [target saveDownloadImage];
+        }
+        
+    } overallCompletion:^(NSError * _Nullable error) {
+        DMLog(@"DownloadFile Error %@",error.description);
+    }];
+    
+}
+
+
+/**
+ save downloaded image in album
+ */
+- (void)saveDownloadImage{
+    if (self.downloadedImageArray && self.downloadedImageArray.count > 0) {
+        UIImage *image = [self.downloadedImageArray lastObject];
+        CLLocation *location = [self.downloadedImageLocationArray lastObject];
+        [self saveImageToCameraRoll:image location:location];
+    }else{
+        [self.downloadAlertController dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
+
+/**
+ save image with location
+
+ @param image UIImage
+ @param location CLLocation
+ */
+- (void)saveImageToCameraRoll:(UIImage *)image location:(CLLocation *)location{
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        PHAssetChangeRequest *newAssetRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+        if (location) {
+            newAssetRequest.location = location;
+        }
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        if (error != NULL) {
+            [self.downloadAlertController dismissViewControllerAnimated:YES completion:nil];
+            WLAlertController *alertController = [WLAlertController alertWithTitle:@"存储图片失败" message:error.description];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }else{
+            [self.downloadedImageArray removeLastObject];
+            [self.downloadedImageLocationArray removeLastObject];
+            if (self.downloadedImageArray) {
+                [self saveDownloadImage];
+                
+                if (self.downloadedImageArray.count == 0) {
+                    WLAlertController *alertController = [WLAlertController alertWithTitle:@"照片已存储到相册" message:@""];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                }
+            }
+        }
+    }];
+    
+}
+
+
+/**
+ start timer when download image begin
+ */
+- (void)startUpdateTimer{
+    if (self.updateImageDownloadTimer == nil) {
+        self.updateImageDownloadTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDownloadProgress:) userInfo:nil repeats:YES];
+    }
+}
+
+/**
+ update download progress
+
+ @param updatedTimer NSTimer
+ */
 - (void)updateDownloadProgress:(NSTimer *)updatedTimer{
     if (self.downloadImageError) {
         [self stopTimer];
@@ -569,6 +617,140 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     }
 }
 
+/**
+ stop timer when download image end
+ */
+- (void)stopTimer{
+    if (self.updateImageDownloadTimer != nil) {
+        [self.updateImageDownloadTimer invalidate];
+        self.updateImageDownloadTimer = nil;
+    }
+}
+
+
+/**
+ process file name to match the key in locationDic
+
+ @param fileName NSString
+ @return NSString
+ */
+- (NSString *)processFileName:(NSString *)fileName{
+    NSString *processedFileName = [[fileName componentsSeparatedByString:@"\\"] lastObject];
+    NSArray *processedFileNameArr = [processedFileName componentsSeparatedByString:@"."];
+    NSString *fileSuffix = [processedFileNameArr lastObject];
+    processedFileName = processedFileNameArr[0];
+    processedFileName = [NSString stringWithFormat:@"%@.%@",processedFileName,[fileSuffix lowercaseString]];
+    return processedFileName;
+    
+}
+
+
+/**
+ reset downloadData when download begin
+ */
+- (void)resetDownloadData{
+    self.downloadImageError = nil;
+    self.totalFileSize = 0;
+    self.currentDownloadSize = 0;
+    self.downloadedFileCount = 0;
+    
+    [self.downloadedImageData setData:[NSData dataWithBytes:NULL length:0]];
+    [self.downloadedImageArray removeAllObjects];
+    [self.downloadedImageLocationArray removeAllObjects];
+}
+
+
+/**
+ get locationDic from archiver
+
+ @return NSMutableDictionary
+ */
+- (NSMutableDictionary *)locationDicFromArchiver{
+    NSString *doc = kPathDocument;
+    NSString *path = [doc stringByAppendingPathComponent:locationDicPath];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    NSMutableDictionary *locationDic = [unarchiver decodeObjectForKey:droneLocationDicKey];
+    if (!locationDic) {
+        locationDic = [NSMutableDictionary dictionaryWithCapacity:10];
+    }
+    return locationDic;
+    
+}
+
+
+/**
+ archive locationDic
+
+ @param locationDic NSMutableDictionary
+ */
+- (void)archiveLocationDic:(NSMutableDictionary *)locationDic{
+    //store archivered binary
+    NSMutableData *data = [NSMutableData dataWithCapacity:1];
+    //alloc init archiver
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    //archive
+    [archiver encodeObject:locationDic forKey:droneLocationDicKey];
+    [archiver finishEncoding];
+    
+    NSString *doc = kPathDocument;
+    NSString *path = [doc stringByAppendingPathComponent:locationDicPath];
+    [data writeToFile:path atomically:YES];
+    
+}
+
+#pragma mark - event handler
+
+/**
+ btn action for present album VC
+
+ @param sender UIButton
+ */
+- (IBAction)settingBtnAction:(id)sender {
+    //call system album
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+    pickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    pickerController.delegate = self;
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+
+
+/**
+ focus map with droneLocation
+ */
+- (void)focusMap{
+    if (CLLocationCoordinate2DIsValid(self.droneLocation.coordinate)) {
+        MACoordinateRegion region = {0};
+        region.center = self.droneLocation.coordinate;
+        region.span.latitudeDelta = 0.001;
+        region.span.longitudeDelta = 0.001;
+        
+        [self.mapView setRegion:region animated:YES];
+    }
+}
+
+
+/**
+ add way points
+
+ @param tapGesture UITapGestureRecognizer
+ */
+- (void)addWaypoints:(UITapGestureRecognizer *)tapGesture{
+    CGPoint point = [tapGesture locationInView:self.mapView];
+    
+    if (tapGesture.state == UIGestureRecognizerStateEnded) {
+        if (self.isEditingPoints) {
+            [self.mapController addPoint:point withMapView:self.mapView];
+        }
+    }
+}
+
+
+/**
+ play the video when in playbakc mode
+
+ @param sender UIButton
+ */
 - (IBAction)playBtnAction:(id)sender {
     __weak DJICamera *camera = [self fetchCamera];
     
@@ -580,7 +762,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 /**
  switch current main window
 
- @param sender <#sender description#>
+ @param sender button
  */
 - (IBAction)smallWindowBtnAction:(UIButton *)sender {
     sender.enabled = NO;
@@ -627,6 +809,12 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     }
 }
 
+
+/**
+ switch in playback mode
+
+ @param sender UIButton
+ */
 - (IBAction)playbackBtnAction:(id)sender {
     DJICamera *camera = [self fetchCamera];
     [camera setMode:DJICameraModePlayback withCompletion:^(NSError * _Nullable error) {
@@ -643,7 +831,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 /**
  show check list
 
- @param gestureRecognizer <#sender description#>
+ @param gestureRecognizer tapGestureRecognizer
  */
 - (void)preFlightStatusWidgetTapAction:(UITapGestureRecognizer *)gestureRecognizer {
     [self presentViewController:self.checklistController animated:YES completion:nil];
@@ -894,9 +1082,9 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 
 #pragma mark - DJIFlightControllerDelegate
 - (void)flightController:(DJIFlightController *)fc didUpdateState:(DJIFlightControllerState *)state{
-    self.droneLocation = state.aircraftLocation.coordinate;
-    
-    [self.mapController updateAircraftLocation:self.droneLocation withMapView:self.mapView];
+    self.droneLocation = state.aircraftLocation;
+    self.droneAltitude = state.altitude;
+    [self.mapController updateAircraftLocation:self.droneLocation.coordinate withMapView:self.mapView];
     double radianYaw = RADIAN(state.attitude.yaw);
     [self.mapController updateAircraftHeading:radianYaw];
 }
@@ -904,9 +1092,25 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info{
     UIImage *resultImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+    NSURL *assetURL = [info objectForKey:UIImagePickerControllerReferenceURL];
+    PHAsset *asset = [[PHAsset fetchAssetsWithALAssetURLs:@[assetURL] options:nil] lastObject];
+    
     ImageViewController *imageVC = [[ImageViewController alloc] initWithNibName:@"ImageViewController" bundle:[NSBundle mainBundle]];
     [imageVC initImage:resultImage];
+    imageVC.asset = asset;
+
     [picker pushViewController:imageVC animated:YES];
+}
+
+#pragma mark - DJICameraDelegate
+- (void)camera:(DJICamera *_Nonnull)camera didGenerateNewMediaFile:(DJIMediaFile *_Nonnull)newMedia{
+    if (newMedia.mediaType == DJIMediaTypeJPEG || newMedia.mediaType == DJIMediaTypeRAWDNG) {
+        
+        [self.locationDic setObject:self.droneLocationWhenShooting forKey:newMedia.fileName];
+        [self archiveLocationDic:self.locationDic];
+        
+    }
 }
 
 /*

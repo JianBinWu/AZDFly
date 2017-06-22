@@ -13,6 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "UtilMacro.h"
 #import "AppMacro.h"
+#import "Const.h"
 #import "WLAlertController.h"
 #import "UIView+Z_Order.h"
 #import "AppSingleton.h"
@@ -20,5 +21,6 @@
 #import <MAMapKit/MAMapKit.h>
 #define MAS_SHORTHAND
 #import <Masonry.h>
+#import <Photos/Photos.h>
 
 #endif /* PrefixHeader_pch */

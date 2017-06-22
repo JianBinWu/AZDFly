@@ -22,6 +22,7 @@
 		A327DCC91EEE67B500682066 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A327DCC71EEE67B500682066 /* ImageViewController.xib */; };
 		A327DCCC1EEE688400682066 /* ImageViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A327DCCB1EEE688400682066 /* ImageViewLayer.m */; };
 		A327DCCF1EEE688F00682066 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = A327DCCE1EEE688F00682066 /* Line.m */; };
+		A327DCE01EF8BEAC00682066 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A327DCDF1EF8BEAC00682066 /* Photos.framework */; };
 		A3407DD21EB9DA890092B6AB /* UIView+Z_Order.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DD11EB9DA890092B6AB /* UIView+Z_Order.m */; };
 		A3407DDD1EBC6E1B0092B6AB /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DDC1EBC6E1B0092B6AB /* Const.m */; };
 		A3407DE11EBC6FCC0092B6AB /* AppSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3407DE01EBC6FCC0092B6AB /* AppSingleton.m */; };
@@ -111,6 +112,7 @@
 		A327DCCB1EEE688400682066 /* ImageViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewLayer.m; sourceTree = "<group>"; };
 		A327DCCD1EEE688F00682066 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		A327DCCE1EEE688F00682066 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
+		A327DCDF1EF8BEAC00682066 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		A3407DD01EB9DA890092B6AB /* UIView+Z_Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Z_Order.h"; sourceTree = "<group>"; };
 		A3407DD11EB9DA890092B6AB /* UIView+Z_Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Z_Order.m"; sourceTree = "<group>"; };
 		A3407DDB1EBC6E1B0092B6AB /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A327DCE01EF8BEAC00682066 /* Photos.framework in Frameworks */,
 				A360A4E81EB834AB00B043B5 /* VideoPreviewer.framework in Frameworks */,
 				879CA05330CEF760B634DC11 /* libPods-azdFly.a in Frameworks */,
 			);
@@ -171,6 +174,7 @@
 		7B34CEEF6A6EF9867E23B643 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A327DCDF1EF8BEAC00682066 /* Photos.framework */,
 				A360A4E21EB8349500B043B5 /* VideoPreviewer.xcodeproj */,
 				9A61CC2B936158068CD1C6AC /* libPods-azdFly.a */,
 			);

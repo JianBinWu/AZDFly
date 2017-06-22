@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const droneLocationDicKey;
+extern NSString * const locationDicPath;
 @interface Const : NSObject
 
 @end
