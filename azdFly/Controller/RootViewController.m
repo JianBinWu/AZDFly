@@ -49,6 +49,8 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *fpvPreviewViewWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapViewContainerHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapViewContainerWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *smallWinBtnWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *smallWinBtnHeightConstraint;
 
 
 @property (assign, nonatomic) CurrentMainWindow currentMainWindow;   //mark currentMainWindow: CurrentMainWindowCamera or CurrentMainWindowMap
@@ -125,7 +127,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 - (void)updateViewConstraints{
     //layout gsButtonVC
     NSUInteger gsButtonVCWidth = 100;
-    NSUInteger gsButtonVCHeight = 254;
+    NSUInteger gsButtonVCHeight = 244;
     [self.gsButtonVC.view makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.statusBarView.bottom);
         make.right.equalTo(self.view.right);
@@ -146,6 +148,20 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     CGFloat widthRatio = (CGFloat)160 / 667;
     CGFloat heightRatio = (CGFloat)100 / 375;
     self.currentSmallWinSize = CGSizeMake(KScreen_Width * widthRatio, KScreen_Height * heightRatio);
+    self.smallWinBtnWidthConstraint.constant = self.currentSmallWinSize.width;
+    self.smallWinBtnHeightConstraint.constant = self.currentSmallWinSize.height;
+    if (self.currentMainWindow == CurrentMainWindowCamera) {
+        self.mapViewContainerWidthConstraint.constant = self.currentSmallWinSize.width;
+        self.mapViewContainerHeightConstraint.constant = self.currentSmallWinSize.height;
+        self.fpvPreviewViewWidthConstraint.constant = KScreen_Width;
+        self.fpvPreviewViewHeightConstraint.constant = KScreen_Height;
+    }else{
+        self.mapViewContainerWidthConstraint.constant = KScreen_Width;
+        self.mapViewContainerHeightConstraint.constant = KScreen_Height;
+        self.fpvPreviewViewWidthConstraint.constant = self.currentSmallWinSize.width;
+        self.fpvPreviewViewHeightConstraint.constant = self.currentSmallWinSize.height;
+    }
+    
     
     [super updateViewConstraints];
 }
@@ -1021,6 +1037,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     self.waypointMission.maxFlightSpeed = [self.waypointConfigVC.maxFlightSpeedTextField.text floatValue];
     self.waypointMission.autoFlightSpeed = [self.waypointConfigVC.autoFlightSpeedTextField.text floatValue];
     self.waypointMission.headingMode = (DJIWaypointMissionHeadingMode)self.waypointConfigVC.headingSegmentedControl.selectedSegmentIndex;
+    self.waypointMission.finishedAction = (DJIWaypointMissionFinishedAction)self.waypointConfigVC.actionSegmentedControl.selectedSegmentIndex;
     [[self missionOperator] loadMission:self.waypointMission];
     
     WeakRef(target);

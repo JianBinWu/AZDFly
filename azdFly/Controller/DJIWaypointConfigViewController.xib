@@ -28,7 +28,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="kLc-yX-nV3"/>
                     </constraints>
-                    <string key="text">Waypoint Configuration	</string>
+                    <string key="text">航点飞行配置	</string>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                         <constraint firstAttribute="width" constant="199" id="JuA-4G-naE"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Cancel">
+                    <state key="normal" title="取消">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
@@ -51,7 +51,7 @@
                     <rect key="frame" x="200" y="257" width="200" height="36"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Finish">
+                    <state key="normal" title="完成">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
@@ -65,14 +65,14 @@
                         <constraint firstAttribute="width" constant="360" id="QVv-MT-TVD"/>
                     </constraints>
                     <segments>
-                        <segment title="Auto"/>
-                        <segment title="Initial"/>
-                        <segment title="RC Control"/>
-                        <segment title="Use Waypoint"/>
+                        <segment title="自动"/>
+                        <segment title="初始朝向"/>
+                        <segment title="遥控器控制"/>
+                        <segment title="朝向航点"/>
                     </segments>
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </segmentedControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altitude:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="6Sq-HH-8E5">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高度：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="6Sq-HH-8E5">
                     <rect key="frame" x="20" y="43" width="61" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="uv6-ar-gHC"/>
@@ -91,7 +91,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Flight Speed:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="gVk-Ew-llL">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自动飞行速度：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="gVk-Ew-llL">
                     <rect key="frame" x="175" y="43" width="118" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="2Cl-Uz-3q7"/>
@@ -110,7 +110,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Flight Speed:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="PWi-Nx-BMi">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最大飞行速度：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="PWi-Nx-BMi">
                     <rect key="frame" x="20" y="84" width="118" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="118" id="78t-01-tYv"/>
@@ -129,7 +129,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action After Finished:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Faz-o3-9PT">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务结束后：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Faz-o3-9PT">
                     <rect key="frame" x="20" y="117" width="187" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="187" id="AZi-WC-b0p"/>
@@ -146,16 +146,16 @@
                         <constraint firstAttribute="height" constant="28" id="ppc-Ec-4Rw"/>
                     </constraints>
                     <segments>
-                        <segment title="None"/>
-                        <segment title="GoHome"/>
-                        <segment title="AutoLand"/>
-                        <segment title="BackTo 1st"/>
-                        <segment title="UntilStop"/>
+                        <segment title="无行为"/>
+                        <segment title="返航"/>
+                        <segment title="自动降落"/>
+                        <segment title="返回1st航点"/>
+                        <segment title="继续任务"/>
                     </segments>
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </segmentedControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heading:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="EQ5-Dh-sMO">
-                    <rect key="frame" x="20" y="176" width="54.5" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="朝向：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="EQ5-Dh-sMO">
+                    <rect key="frame" x="20" y="176" width="40" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="UAd-js-Qst"/>
                     </constraints>
