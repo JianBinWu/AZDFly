@@ -29,6 +29,20 @@
                                     <constraint firstAttribute="height" constant="375" id="vSu-pB-9Lc"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7p-cF-3cA">
+                                <rect key="frame" x="15" y="33" width="73" height="30"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.30588235289999999" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="d1f-nH-mJP"/>
+                                    <constraint firstAttribute="height" constant="30" id="ud8-m2-wpv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="标准地图"/>
+                                <state key="selected" title="卫星地图"/>
+                                <connections>
+                                    <action selector="switchMapModeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PYx-rV-6pC"/>
+                                </connections>
+                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXz-KP-q1t">
                                 <rect key="frame" x="293" y="147" width="80" height="80"/>
                                 <constraints>
@@ -333,8 +347,10 @@
                             <constraint firstAttribute="trailing" secondItem="7WA-cU-bAg" secondAttribute="trailing" id="QuR-kc-5Ij"/>
                             <constraint firstItem="1fS-fw-V37" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="bottom" constant="8" id="SKo-Vj-fWG"/>
                             <constraint firstItem="dnh-So-rxF" firstAttribute="top" secondItem="1fS-fw-V37" secondAttribute="bottom" constant="8" id="WLt-3X-2Z2"/>
+                            <constraint firstItem="t7p-cF-3cA" firstAttribute="top" secondItem="Lpx-oZ-xyb" secondAttribute="bottom" constant="8" id="Y1f-dz-1Uz"/>
                             <constraint firstItem="dXz-KP-q1t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fZO-D6-r9P"/>
                             <constraint firstItem="NDT-IL-Td5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="fga-xL-VHw"/>
+                            <constraint firstItem="t7p-cF-3cA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="hbK-Nq-hpq"/>
                             <constraint firstItem="dnh-So-rxF" firstAttribute="top" secondItem="XtU-Bt-Bt4" secondAttribute="bottom" id="jG9-Sx-Xno"/>
                             <constraint firstItem="MP3-mp-L05" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kHZ-Af-TxR"/>
                             <constraint firstItem="MP3-mp-L05" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ohU-dQ-XLw"/>
@@ -356,6 +372,7 @@
                         <outlet property="fpvPreviewViewWidthConstraint" destination="V8V-fB-o3i" id="Eip-wZ-rJS"/>
                         <outlet property="leftSideBarView" destination="MP3-mp-L05" id="s1A-Hi-2z0"/>
                         <outlet property="mapContainerView" destination="SYJ-Uy-eNp" id="P7Q-IW-giG"/>
+                        <outlet property="mapModeBtn" destination="t7p-cF-3cA" id="m1q-pp-tFQ"/>
                         <outlet property="mapViewContainerHeightConstraint" destination="nM4-T1-YyV" id="1uh-ol-fTq"/>
                         <outlet property="mapViewContainerWidthConstraint" destination="heW-oM-6Wq" id="KXX-3c-nKT"/>
                         <outlet property="playVideoBtn" destination="dXz-KP-q1t" id="Utm-jt-QxN"/>
@@ -367,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="206.44677661169416" y="-146.40000000000001"/>
+            <point key="canvasLocation" x="169" y="-383"/>
         </scene>
         <!--Camera Settings Controller-->
         <scene sceneID="p4a-K1-EsH">

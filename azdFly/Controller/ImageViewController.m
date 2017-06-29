@@ -103,7 +103,12 @@
         CLLocation *location = self.asset.location;
         [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
             PHAssetChangeRequest *assetChangeRequest = [PHAssetChangeRequest changeRequestForAsset:self.asset];
-            assetChangeRequest.location = [[CLLocation alloc] initWithCoordinate:location.coordinate altitude:shootedHeight horizontalAccuracy:location.horizontalAccuracy verticalAccuracy:location.verticalAccuracy timestamp:location.timestamp];
+            if (location) {
+                assetChangeRequest.location = [[CLLocation alloc] initWithCoordinate:location.coordinate altitude:shootedHeight horizontalAccuracy:location.horizontalAccuracy verticalAccuracy:location.verticalAccuracy timestamp:location.timestamp];
+            }else{
+                assetChangeRequest.location = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(1, 1) altitude:shootedHeight horizontalAccuracy:1 verticalAccuracy:1 timestamp:[NSDate date]];
+            }
+         
         } completionHandler:^(BOOL success, NSError * _Nullable error) {
             if (!error) {
                 self.layer.shootedHeight = shootedHeight * 100;

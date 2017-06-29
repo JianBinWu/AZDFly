@@ -17,7 +17,7 @@
 
 
 //To use DJI Bridge app, change `ENTER_DEBUG_MODE` to 1 and add bridge app IP address in `debugIP` string.
-#define ENTER_DEBUG_MODE 1
+#define ENTER_DEBUG_MODE 0
 
 typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     CurrentMainWindowCamera,
@@ -86,6 +86,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 @property (strong, nonatomic) DJIWaypointConfigViewController *waypointConfigVC;  //a waypoint config controller
 @property (strong, nonatomic) DJIMutableWaypointMission *waypointMission;
 @property (strong, nonatomic) MAAnnotationView *userLocationAnnotationView;       //annotationView for userLocation
+@property (weak, nonatomic) IBOutlet UIButton *mapModeBtn;
 
 @end
 
@@ -109,7 +110,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - rewrite methods
+#pragma mark - Override methods
 - (BOOL)prefersStatusBarHidden{
     return YES;
 }
@@ -149,8 +150,8 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     [super updateViewConstraints];
 }
 
-#pragma mark - Custom Methods
 
+#pragma mark - Initial Methods
 /**
  init data for download image,current main window,checklist,map
  */
@@ -169,6 +170,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     
     //init map data
     self.userLocation = kCLLocationCoordinate2DInvalid;
+    self.droneLocation = nil;
     self.mapController = [[DJIMapController alloc] init];
     
 }
@@ -387,7 +389,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     
 }
 
-
+#pragma mark - Custom Methods
 /**
  connect to product
  */
@@ -714,12 +716,27 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
     [self presentViewController:pickerController animated:YES completion:nil];
 }
 
+/**
+ switch map mode
+
+ @param sender sender.selected == no : standard map
+               sender.selected == yes  : satellite map
+ */
+- (IBAction)switchMapModeAction:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        self.mapView.mapType = MKMapTypeSatellite;
+    }else{
+        self.mapView.mapType = MKMapTypeStandard;
+    }
+}
+
 
 /**
  focus map with droneLocation
  */
 - (void)focusMap{
-    if (CLLocationCoordinate2DIsValid(self.droneLocation.coordinate)) {
+    if (self.droneLocation) {
         MACoordinateRegion region = {0};
         region.center = self.droneLocation.coordinate;
         region.span.latitudeDelta = 0.001;
@@ -778,6 +795,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
             self.mapViewContainerWidthConstraint.constant = KScreen_Width;
             self.mapViewContainerHeightConstraint.constant = KScreen_Height;
             self.gsButtonVC.view.alpha = 1.0;
+            self.mapModeBtn.alpha = 1.0;
             [self.view layoutIfNeeded];
         } completion:^(BOOL finished) {
             self.fpvPreviewViewWidthConstraint.constant = self.currentSmallWinSize.width;
@@ -793,6 +811,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
             self.fpvPreviewViewHeightConstraint.constant = KScreen_Height;
             self.gsButtonVC.view.alpha = 0.0;
             self.waypointConfigVC.view.alpha = 0.0;
+            self.mapModeBtn.alpha = 0.0;
             [self.view layoutIfNeeded];
         } completion:^(BOOL finished) {
             self.mapViewContainerWidthConstraint.constant = self.currentSmallWinSize.width;
