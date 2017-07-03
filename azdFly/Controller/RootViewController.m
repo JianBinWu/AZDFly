@@ -887,6 +887,7 @@ typedef NS_ENUM(NSInteger, CurrentMainWindow) {
 
 #pragma mark - DJIBaseProductDelegate
 - (void)productConnected:(DJIBaseProduct *)product{
+    
     if (product) {
         [product setDelegate:self];
         DJICamera *camera = [self fetchCamera];

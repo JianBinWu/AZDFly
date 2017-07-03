@@ -449,7 +449,7 @@
 				TargetAttributes = {
 					A360A4AB1EB3355200B043B5 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 6QLN4D9TH8;
+						DevelopmentTeam = K29NV8DZ45;
 						ProvisioningStyle = Automatic;
 					};
 					A360A4C41EB3355300B043B5 = {
@@ -757,13 +757,13 @@
 			baseConfigurationReference = 2DEFCBED59E214116DFF8A7A /* Pods-azdFly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6QLN4D9TH8;
+				DEVELOPMENT_TEAM = K29NV8DZ45;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = /Users/wujianbin/Desktop/azdFly/azdFly/PrefixHeader.pch;
 				INFOPLIST_FILE = azdFly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xmazd.azdFly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azd.azdFly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -774,13 +774,13 @@
 			baseConfigurationReference = 0A5DC5A40B6AC6175E829F1C /* Pods-azdFly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6QLN4D9TH8;
+				DEVELOPMENT_TEAM = K29NV8DZ45;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = /Users/wujianbin/Desktop/azdFly/azdFly/PrefixHeader.pch;
 				INFOPLIST_FILE = azdFly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xmazd.azdFly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azd.azdFly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
